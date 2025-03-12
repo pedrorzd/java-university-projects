@@ -4,7 +4,7 @@ public class Alunos {
     private int codeAluno;
     private String nomeAluno;
     private String celularAluno;
-    private String emailCelular;
+    private String emailAluno;
     private double preçoMensalidade;
 
     public int getCodeAluno() {
@@ -31,12 +31,12 @@ public class Alunos {
         this.celularAluno = celularAluno;
     }
 
-    public String getEmailCelular() {
-        return emailCelular;
+    public String getEmailAluno() {
+        return emailAluno;
     }
 
-    public void setEmailCelular(String emailCelular) {
-        this.emailCelular = emailCelular;
+    public void setEmailAluno(String emailAluno) {
+        this.emailAluno = emailAluno;
     }
 
     public double getPreçoMensalidade() {
@@ -45,5 +45,15 @@ public class Alunos {
 
     public void setPreçoMensalidade(double preçoMensalidade) {
         this.preçoMensalidade = preçoMensalidade;
+    }
+
+    public String toString() {
+        return "\nAluno: \n"+
+                "\nCódigo Aluno: " + getCodeAluno()+
+                "\nNome Aluno: " + getNomeAluno()+
+                "\nCelular Aluno: " + getCelularAluno()+
+                "\nEmail: "+ getEmailAluno()+
+                "\nValor Mensalidade: "+getPreçoMensalidade();
+
     }
 }

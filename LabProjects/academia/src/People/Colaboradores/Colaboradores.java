@@ -3,7 +3,7 @@ package People.Colaboradores;
 public class Colaboradores {
     private int codeColaborador;
     private String nomeColaborador;
-    private String celularColaborador
+    private String celularColaborador;
     private String funcao;
     private double salario;
 
@@ -45,5 +45,14 @@ public class Colaboradores {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    public String toString() {
+        return "\nColaborador: \n"+
+                "\ncodigo: " + getCodeColaborador()+
+                "\nNome: " + getNomeColaborador()+
+                "\nCelular: " + getCelularColaborador()+
+                "\nFunção: "+ getFuncao()+
+                "\nSalário: "+ getSalario();
     }
 }

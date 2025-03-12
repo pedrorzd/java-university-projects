@@ -49,8 +49,8 @@ public class Produtos {
     }
 
     public String toString() {
-        return "Aulas: \n"+
-                "\ncodigo: " + getCodeProdutos()+
+        return "\nProduto: \n"+
+                "\nCodigo: " + getCodeProdutos()+
                 "\nNome Produto: " + getNomeProduto()+
                 "\nQuantidade: " + getQuantidade()+
                 "\nUltima Compra: "+ getUltimaCompra()+

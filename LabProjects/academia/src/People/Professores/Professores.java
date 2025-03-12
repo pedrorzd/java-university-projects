@@ -5,7 +5,7 @@ public class Professores {
     private String nomeProfessor;
     private String celularProf;
     private String experiencia;
-    private String horarios;
+    private String horariosAulas;
 
 
     public int getCodeProfessor() {
@@ -40,12 +40,21 @@ public class Professores {
         this.experiencia = experiencia;
     }
 
-    public String getHorarios() {
-        return horarios;
+    public String getHorariosAulas() {
+        return horariosAulas;
     }
 
-    public void setHorarios(String horarios) {
-        this.horarios = horarios;
+    public void setHorariosAulas(String horariosAulas) {
+        this.horariosAulas = horariosAulas;
     }
 
+    public String toString() {
+        return "\nProfessor: \n"+
+                "\ncodigo: " + getCodeProfessor()+
+                "\nNome: " + getNomeProfessor()+
+                "\nCelular: " + getCelularProf()+
+                "\nExperiência: "+ getExperiencia()+
+                "\nHorarios: "+ getHorariosAulas();
+
+    }
 }

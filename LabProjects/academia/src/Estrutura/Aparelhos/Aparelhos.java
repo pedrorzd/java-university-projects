@@ -1,10 +1,13 @@
 package Estrutura.Aparelhos;
 
+import java.util.Date;
+
 public class Aparelhos {
     private int codeAparelho;
     private String nome;
     private boolean possuiPeso;
     private double pesoMaximo;
+    private String dataCompra;
 
 
     public String getNome() {
@@ -23,7 +26,7 @@ public class Aparelhos {
         this.codeAparelho = codeAparelho;
     }
 
-    public boolean isPossuiPeso() {
+    public boolean getPossuiPeso() {
         return possuiPeso;
     }
 
@@ -39,13 +42,22 @@ public class Aparelhos {
         this.pesoMaximo = pesoMaximo;
     }
 
+    public String getDataCompra() {
+        return dataCompra;
+    }
+
+    public void setDataCompra(String dataCompra) {
+        this.dataCompra = dataCompra;
+    }
+
     public String toString() {
-        return "Aparelho{" +
-                "codeAparelho=" + codeAparelho +
-                ", nome='" + nome + '\'' +
-                ", possuiPeso=" + possuiPeso +
-                ", pesoMaximo=" + pesoMaximo +
-                '}';
+        return "\nAparelho: \n" +
+                "\ncodeAparelho:" + getCodeAparelho() +
+                "\nNome: " + getNome() +
+                "\nPossui Peso: " + getPossuiPeso() +
+                "\nPeso Maximo: " + getPesoMaximo() +
+                "\nData Aquisição: " + getDataCompra();
+
     }
 
 

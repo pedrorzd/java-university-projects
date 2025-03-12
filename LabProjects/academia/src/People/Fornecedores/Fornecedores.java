@@ -47,4 +47,14 @@ public class Fornecedores {
         this.CNPJ = CNPJ;
     }
 
+    public String toString() {
+        return "\nFornecedor: \n"+
+                "\ncodigo: " + getCodeFornecedor()+
+                "\nNome fornecedor: " + getNomeFornecedor()+
+                "\nEmail: " + getEmailFornecedor()+
+                "\nMercadoria: "+ getMercadoria()+
+                "\nCNPJ: "+getCNPJ();
+
+    }
+
 }

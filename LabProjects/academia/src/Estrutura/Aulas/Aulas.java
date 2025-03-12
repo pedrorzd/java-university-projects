@@ -58,7 +58,7 @@ public class Aulas {
 
 
     public String toString() {
-        return "Aulas: \n"+
+        return "\nAulas: \n"+
                 "\ncodigo: " + getCodeAulas()+
                 "\nHoras Semanais: " + getHoras()+
                 "\nNome Aula: " + getNomeAula()+
