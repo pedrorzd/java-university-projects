@@ -10,8 +10,8 @@ Este repositório contém projetos desenvolvidos ao longo da minha graduação, 
 
 ## 🛠️ Tecnologias Utilizadas  
 
-- **Java** (versão utilizada nos projetos)  
-- Outras ferramentas e frameworks, se aplicável  
+- **Java** 11.0 
+- Java Swing, MySQL.
 
 ## 🚀 Como Executar os Projetos  
 
