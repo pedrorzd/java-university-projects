@@ -50,5 +50,6 @@ public class Clientes {
                 "\nEndereço: " +getEndereco()+
                 "\nTelefone: " +getTelefone()
         );
+        System.out.println();
     }
 }

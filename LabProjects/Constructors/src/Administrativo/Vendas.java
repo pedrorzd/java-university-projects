@@ -50,5 +50,6 @@ public class Vendas {
                 "\nCliente: " +getCliente()+
                 "\nData compra: " +getDataCompra()
         );
+        System.out.println();
     }
 }

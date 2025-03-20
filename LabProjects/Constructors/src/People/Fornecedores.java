@@ -64,7 +64,7 @@ public class Fornecedores {
                 "\nEndereço: " + getEndereco() +
                 "\nContato: " + getContato()
         );
-
+        System.out.println();
     }
 }
 

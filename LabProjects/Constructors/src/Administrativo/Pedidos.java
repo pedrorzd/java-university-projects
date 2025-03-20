@@ -50,13 +50,13 @@ public class Pedidos {
     public void Imprimir(){
         System.out.print(
                 "\nID: " +getId()+
-                        "\nQuantidade produto: " +getQtdeProduto()+
-                        "\nProduto: " +getProduto()+
-                        "\nValor unitário: " +getValorUnitario()+
-                        "\nValor total: " +getValorTotal()+
-                        "\nFornecedor: " +getFornecedor()+
-                        "\nData pedido: " +getDataPedido()
+                "\nQuantidade produto: " +getQtdeProduto()+
+                "\nProduto: " +getProduto()+
+                "\nValor unitário: " +getValorUnitario()+
+                "\nValor total: " +getValorTotal()+
+                "\nFornecedor: " +getFornecedor()+
+                "\nData pedido: " +getDataPedido()
         );
+        System.out.println();
     }
-
 }

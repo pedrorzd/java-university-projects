@@ -71,5 +71,6 @@ public class Colaboradores {
                         "\nContato: " + getContato() +
                         "\nSalário: " + getSalario()
         );
+        System.out.println();
     }
 }

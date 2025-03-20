@@ -36,13 +36,14 @@ public class Pagamentos {
     }
 
     public void Imprimir(){
+
         System.out.print(
                 "\nID: " +getId()+
-                        "\nTipo: " +getTipo()+
-                        "\nData pagamento: " +getDataPagamento()+
-                        "\nFavorecido: " +getFavorecido()+
-                        "\nValor pago: " +getValorPago()
+                "\nTipo: " +getTipo()+
+                "\nData pagamento: " +getDataPagamento()+
+                "\nFavorecido: " +getFavorecido()+
+                "\nValor pago: " +getValorPago()
         );
+        System.out.println();
     }
-
 }

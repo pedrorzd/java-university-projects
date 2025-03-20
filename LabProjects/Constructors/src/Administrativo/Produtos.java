@@ -1,15 +1,15 @@
 package Administrativo;
 
 public class Produtos {
-    private String descricao;
-    private String fornecedor;
-    private String tipo;
     private int id;
-    private double precoCompra;
+    private String descricao;
+    private String tipo;
+    private String fornecedor;
+        private double precoCompra;
     private double precoVenda;
     private int qtdeEstoque;
 
-    public Produtos(String descricao, String fornecedor, String tipo, int id, double precoCompra, double precoVenda, int qtdeEstoque){
+    public Produtos(int id, String descricao, String fornecedor, String tipo, double precoCompra, double precoVenda, int qtdeEstoque){
         this.id = id;
         this.descricao = descricao;
         this.fornecedor = fornecedor;
@@ -51,12 +51,12 @@ public class Produtos {
         System.out.print(
                 "\nID: " +getId()+
                 "\nDescrição: " +getDescricao()+
-                        "\nFornecedor: " +getFornecedor()+
-                        "\nTipo: " +getTipo()+
-                        "\nPreço compra: " +getPrecoCompra()+
-                        "\nPreço venda: " +getPrecoVenda()+
-                        "\nQuantidade estoque: " +getQtdeEstoque()
+                "\nFornecedor: " +getFornecedor()+
+                "\nTipo: " +getTipo()+
+                "\nPreço compra: " +getPrecoCompra()+
+                "\nPreço venda: " +getPrecoVenda()+
+                "\nQuantidade estoque: " +getQtdeEstoque()
         );
+        System.out.println();
     }
-
 }
