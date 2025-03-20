@@ -6,7 +6,6 @@ Este repositório contém projetos desenvolvidos ao longo da minha graduação, 
 
 - `LabProjects/` - Pequenos exercícios e práticas de aprendizado  
 - `meuPet/` - Projeto em grupo sendo desenvolvido para disciplina de Linguagens de programação.  
-- `projeto-final/` - Trabalhos mais complexos ou de conclusão de disciplina  
 
 ## 🛠️ Tecnologias Utilizadas  
 
