@@ -6,15 +6,17 @@ public class Morador {
     private int id;
     private String nome;
     private int idade;
-    private int cpf;
+    private String cpf;
     private String telefone;
+    private boolean pago;
 
-    public Morador(int id, String nome, int idade, int cpf, String telefone) {
+    public Morador(int id, String nome, int idade, String cpf, String telefone, boolean pago) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
         this.telefone = telefone;
+        this.pago = pago;
     }
 
     public int getId() {
@@ -37,7 +39,7 @@ public class Morador {
         this.idade = idade;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
@@ -49,13 +51,18 @@ public class Morador {
         this.telefone = telefone;
     }
 
+    public boolean isPago() {
+        return pago;
+    }
+
     public void dadosMorador(){
         JOptionPane.showInputDialog(null,
                  "\nID Morador: "+getId()+
                 "\nNome Morador: "+getNome()+
                 "\nIdade: "+getIdade()+
                 "\nCPF: "+getCpf()+
-                "\nTelefone: "+getTelefone()
+                "\nTelefone: "+getTelefone()+
+                "\nPagou a fatura do mês: "+isPago()
         );
     }
 }

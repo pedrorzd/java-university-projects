@@ -1,9 +1,7 @@
 package Entities;
 
-import javax.swing.*;
-
 public class Portaria {
-    Colaboradores colaborador1;
+    Colaboradores colaborador;
 
     private int idColaborador;
     private String nomeColaborador;
@@ -12,7 +10,7 @@ public class Portaria {
     private boolean ativo = true;
 
     public Portaria(int idColaborador, String nomeColaborador, String turno, String telefonePortaria) {
-        this.idColaborador = colaborador1.getIdColaborador();
+        this.idColaborador = colaborador.getIdColaborador();
         this.nomeColaborador = nomeColaborador;
         this.turno = turno;
         this.telefonePortaria = telefonePortaria;
