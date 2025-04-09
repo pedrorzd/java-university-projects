@@ -1,30 +1,29 @@
 package Entities;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Morador {
     private int id;
     private String nome;
     private int idade;
-    private String cpf;
+    private int cpf;
     private String telefone;
-    private boolean pago;
 
-    public Morador(int id, String nome, int idade, String cpf, String telefone, boolean pago) {
+    public Morador(int id, String nome, int idade, int cpf, String telefone) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.pago = pago;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -32,37 +31,23 @@ public class Morador {
     }
 
     public int getIdade() {
-        return idade;
+        return this.idade;
     }
 
     public void setIdade(int idade) {
         this.idade = idade;
     }
 
-    public String getCpf() {
-        return cpf;
+    public int getCpf() {
+        return this.cpf;
     }
 
     public String getTelefone() {
-        return telefone;
+        return this.telefone;
     }
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public boolean isPago() {
-        return pago;
-    }
-
-    public void dadosMorador(){
-        JOptionPane.showInputDialog(null,
-                 "\nID Morador: "+getId()+
-                "\nNome Morador: "+getNome()+
-                "\nIdade: "+getIdade()+
-                "\nCPF: "+getCpf()+
-                "\nTelefone: "+getTelefone()+
-                "\nPagou a fatura do mês: "+isPago()
-        );
-    }
 }

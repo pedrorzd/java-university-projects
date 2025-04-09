@@ -1,72 +1,62 @@
 package Entities;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Colaboradores {
     private int idColaborador;
     private String nomeColaborador;
-    private String cpfColaborador;
-    private String telefoneColaborador;
-    private String emailColaborador;
-    private double salario;
+    private String funcao;
+    private String telefone;
+    private boolean ativo;
 
-    public Colaboradores(int idColaborador, String nomeColaborador, String cpfColaborador, String telefoneColaborador, String emailColaborador, double salario) {
+    public Colaboradores(int idColaborador, String nomeColaborador, String funcao, String telefone, boolean ativo) {
         this.idColaborador = idColaborador;
         this.nomeColaborador = nomeColaborador;
-        this.cpfColaborador = cpfColaborador;
-        this.telefoneColaborador = telefoneColaborador;
-        this.emailColaborador = emailColaborador;
-        this.salario = salario;
+        this.funcao = funcao;
+        this.telefone = telefone;
+        this.ativo = ativo;
     }
 
     public int getIdColaborador() {
-        return idColaborador;
+        return this.idColaborador;
+    }
+
+    public void setIdColaborador(int idColaborador) {
+        this.idColaborador = idColaborador;
     }
 
     public String getNomeColaborador() {
-        return nomeColaborador;
+        return this.nomeColaborador;
     }
 
     public void setNomeColaborador(String nomeColaborador) {
         this.nomeColaborador = nomeColaborador;
     }
 
-    public String getCpfColaborador() {
-        return cpfColaborador;
+    public String getFuncao() {
+        return this.funcao;
     }
 
-    public String getTelefoneColaborador() {
-        return telefoneColaborador;
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
 
-    public void setTelefoneColaborador(String telefoneColaborador) {
-        this.telefoneColaborador = telefoneColaborador;
+    public String getTelefone() {
+        return this.telefone;
     }
 
-    public String getEmailColaborador() {
-        return emailColaborador;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public void setEmailColaborador(String emailColaborador) {
-        this.emailColaborador = emailColaborador;
+    public boolean isAtivo() {
+        return this.ativo;
     }
 
-    public double getSalario() {
-        return salario;
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
 
-    public void dadosColaboradores(){
-        JOptionPane.showMessageDialog(null, "Dados Colaboradores: " +
-                "\nID Colaborador: "+ getIdColaborador()+
-                "\nNome Colaborador: "+getNomeColaborador()+
-                "\nCPF Colaborador: "+getCpfColaborador()+
-                "\nTelefone Colaborador: "+getTelefoneColaborador()+
-                "\nEmail Colaborador: " +getEmailColaborador()+
-                "\nSalario: "+getSalario()
-        );
-    }
 }

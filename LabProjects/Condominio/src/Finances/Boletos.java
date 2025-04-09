@@ -5,64 +5,53 @@ import Entities.Condominio;
 import Entities.Morador;
 
 import javax.swing.*;
+import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Boletos {
+    private int idBoleto;
+    private double valor;
+    private String dataVencimento;
+    private boolean pago;
 
-    private Morador morador;
-    private Apartamentos apartamento;
-    private Condominio condominio;
-    private String cpf;
-    private String nome;
-    private int numeroApartamento;
-    private double valorCondominio;
-    private String telefoneCondominio;
-    private int numeroBoleto;
-
-    public Boletos(String cpf, String nome, int numeroApartamento, double valorCondominio, String telefoneCondominio) {
-        this.cpf = morador.getCpf();
-        this.nome = morador.getNome();
-        this.numeroApartamento = apartamento.getNumeroApartamento();
-        this.valorCondominio = condominio.getValorCondominio();
-        this.telefoneCondominio = condominio.getTelefone();
+    public Boletos(int idBoleto, double valor, String dataVencimento, boolean pago) {
+        this.idBoleto = idBoleto;
+        this.valor = valor;
+        this.dataVencimento = dataVencimento;
+        this.pago = pago;
     }
 
-    public String getCpf() {
-        return cpf;
+    public int getIdBoleto() {
+        return this.idBoleto;
     }
 
-    public String getNome() {
-        return nome;
+    public void setIdBoleto(int idBoleto) {
+        this.idBoleto = idBoleto;
     }
 
-    public int getNumeroApartamento() {
-        return numeroApartamento;
+    public double getValor() {
+        return this.valor;
     }
 
-    public double getValorCondominio() {
-        return valorCondominio;
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
-    public String getTelefoneCondominio() {
-        return telefoneCondominio;
+    public String getDataVencimento() {
+        return this.dataVencimento;
     }
 
-    public int getNumeroBoleto() {
-        Random random = new Random();
-        return 100 + random.nextInt(1901); // 1901 = 2000 - 100 + 1
+    public void setDataVencimento(String dataVencimento) {
+        this.dataVencimento = dataVencimento;
     }
 
-
-    public void gerarBoleto(){
-        JOptionPane.showInputDialog(null,
-                "\nBOLETO PARA PAGAMENTO DE CONDOMINIO: "+
-                "\nDados pagador: "+
-                        "\nNúmero Boleto: "+getNumeroBoleto()+
-                        "\nNome: "+getNome()+
-                        "\nCPF: "+getCpf()+
-                        "\nNúmero apartamento: "+getNumeroApartamento()+
-                        "\nValor: R$ %.2f",getValorCondominio()+
-                        "\nTelefone: "+getTelefoneCondominio()
-        );
+    public boolean isPago() {
+        return this.pago;
     }
+
+    public void setPago(boolean pago) {
+        this.pago = pago;
+    }
+
 }
