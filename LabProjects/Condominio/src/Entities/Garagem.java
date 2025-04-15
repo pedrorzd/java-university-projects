@@ -39,4 +39,13 @@ public class Garagem {
         this.vagaOcupada = vagaOcupada;
     }
 
+
+    @Override
+    public String toString() {
+        return "Garagem{" +
+                "numeroVaga=" + numeroVaga +
+                ", metroQuadrado=" + metroQuadrado +
+                ", vagaOcupada=" + vagaOcupada +
+                '}';
+    }
 }

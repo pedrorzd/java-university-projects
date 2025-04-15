@@ -10,20 +10,34 @@ public class Apartamentos {
     private int quantQuartos;
     private double metrosQuadrados;
     private int quantVagas;
-    private int numeroVaga;
-    private int idMorador;
 
-    public Apartamentos(int numeroApartamento, int quantQuartos, double metrosQuadrados, int quantVagas, int numeroVaga, int idMorador, Garagem vaga, Morador morador) {
+    public Apartamentos(int numeroApartamento, int quantQuartos, double metrosQuadrados, int quantVagas, Garagem vaga, Morador morador) {
         this.numeroApartamento = numeroApartamento;
         this.quantQuartos = quantQuartos;
         this.metrosQuadrados = metrosQuadrados;
         this.quantVagas = quantVagas;
-        this.numeroVaga = vaga.getNumeroVaga();
-        this.idMorador = morador.getId();
+        this.vaga = vaga;
+        this.morador = morador;
     }
 
     public int getNumeroApartamento() {
         return this.numeroApartamento;
+    }
+
+    public Garagem getVaga() {
+        return vaga;
+    }
+
+    public void setVaga(Garagem vaga) {
+        this.vaga = vaga;
+    }
+
+    public Morador getMorador() {
+        return morador;
+    }
+
+    public void setMorador(Morador morador) {
+        this.morador = morador;
     }
 
     public void setNumeroApartamento(int numeroApartamento) {
@@ -46,20 +60,16 @@ public class Apartamentos {
         this.quantVagas = quantVagas;
     }
 
-    public int getNumeroVaga() {
-        return this.numeroVaga;
-    }
 
-    public void setNumeroVaga(int numeroVaga) {
-        this.numeroVaga = numeroVaga;
+    @Override
+    public String toString() {
+        return "Apartamentos{" +
+                "vaga=" + vaga +
+                ", morador=" + morador +
+                ", numeroApartamento=" + numeroApartamento +
+                ", quantQuartos=" + quantQuartos +
+                ", metrosQuadrados=" + metrosQuadrados +
+                ", quantVagas=" + quantVagas +
+                '}';
     }
-
-    public int getIdMorador() {
-        return this.idMorador;
-    }
-
-    public void setIdMorador(int idMorador) {
-        this.idMorador = idMorador;
-    }
-
 }

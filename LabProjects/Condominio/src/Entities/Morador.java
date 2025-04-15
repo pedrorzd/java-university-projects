@@ -50,4 +50,15 @@ public class Morador {
         this.telefone = telefone;
     }
 
+
+    @Override
+    public String toString() {
+        return "Morador{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", cpf=" + cpf +
+                ", telefone='" + telefone + '\'' +
+                '}';
+    }
 }

@@ -42,6 +42,19 @@
                   <text value="Clientes"/>
                 </properties>
               </component>
+              <component id="9cd4e" class="javax.swing.JMenuItem" binding="jItemAnimais">
+                <constraints/>
+                <properties>
+                  <armed value="false"/>
+                  <text value="Animais"/>
+                </properties>
+              </component>
+              <component id="8ca01" class="javax.swing.JMenuItem" binding="jItemProdutos">
+                <constraints/>
+                <properties>
+                  <text value="Produtos"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>

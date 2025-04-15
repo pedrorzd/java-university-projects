@@ -9,6 +9,8 @@ public class Principal extends JFrame {
     private JMenuBar jMenuBarPrincipal;
     private JMenu jMenuCadastro;
     private JMenuItem jItemClientes;
+    private JMenuItem jItemAnimais;
+    private JMenuItem jItemProdutos;
 
     public Principal(){
         jItemClientes.addActionListener(new ActionListener() {

@@ -1,13 +1,7 @@
 package Finances;
 
-import Entities.Apartamentos;
-import Entities.Condominio;
-import Entities.Morador;
 
-import javax.swing.*;
-import java.awt.*;
-import java.text.DecimalFormat;
-import java.util.Random;
+import java.time.LocalDate;
 
 public class Boletos {
     private int idBoleto;
@@ -15,10 +9,9 @@ public class Boletos {
     private String dataVencimento;
     private boolean pago;
 
-    public Boletos(int idBoleto, double valor, String dataVencimento, boolean pago) {
+    public Boletos(int idBoleto, double valor, boolean pago) {
         this.idBoleto = idBoleto;
         this.valor = valor;
-        this.dataVencimento = dataVencimento;
         this.pago = pago;
     }
 
@@ -39,11 +32,9 @@ public class Boletos {
     }
 
     public String getDataVencimento() {
-        return this.dataVencimento;
-    }
-
-    public void setDataVencimento(String dataVencimento) {
-        this.dataVencimento = dataVencimento;
+        LocalDate hoje = LocalDate.now();
+        LocalDate vencimento = hoje.plusDays(30);
+        return vencimento.toString();
     }
 
     public boolean isPago() {
