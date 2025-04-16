@@ -7,13 +7,15 @@ public class Colaboradores {
     private int idColaborador;
     private String nomeColaborador;
     private String funcao;
+    private String horario;
     private String telefone;
     private boolean ativo;
 
-    public Colaboradores(int idColaborador, String nomeColaborador, String funcao, String telefone, boolean ativo) {
+    public Colaboradores(int idColaborador, String nomeColaborador, String funcao, String horario, String telefone, boolean ativo) {
         this.idColaborador = idColaborador;
         this.nomeColaborador = nomeColaborador;
         this.funcao = funcao;
+        this.horario = horario;
         this.telefone = telefone;
         this.ativo = ativo;
     }
@@ -40,6 +42,14 @@ public class Colaboradores {
 
     public void setFuncao(String funcao) {
         this.funcao = funcao;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
     public String getTelefone() {

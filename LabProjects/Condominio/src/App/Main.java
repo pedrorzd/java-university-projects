@@ -6,9 +6,12 @@ import Finances.Debitos;
 import Finances.Pagamentos;
 
 import javax.swing.*;
+import java.time.LocalTime;
 
 public class Main {
     public static void main(String[] args) {
+
+        LocalTime horaAtual = LocalTime.now();
 
         Morador morador1 = new Morador(1, "Lucas Silva", 25, 123456789, "99999-8888");
         Morador morador2 = new Morador(2, "Ana Souza", 30, 987654321, "98888-7777");
@@ -28,31 +31,42 @@ public class Main {
         Apartamentos ap4 = new Apartamentos(104, 1, 60.0, 1, garagem4, morador4);
         Apartamentos ap5 = new Apartamentos(105, 2, 80.0, 2, garagem5, morador5);
 
-        Colaboradores colaborador1 = new Colaboradores(1, "João Silva", "Porteiro", "99888-1122", true);
-        Colaboradores colaborador2 = new Colaboradores(2, "Carlos Souza", "Porteiro", "99777-2233", true);
-        Colaboradores colaborador3 = new Colaboradores(3, "Ana Lima", "Porteiro", "99666-3344", true);
-        Colaboradores colaborador4 = new Colaboradores(4, "Fernando Oliveira", "Porteiro", "99555-4455", true);
-        Colaboradores colaborador5 = new Colaboradores(5, "Mariana Costa", "Serviços Gerais", "99444-5566", true);
+        Colaboradores colaborador1 = new Colaboradores(1, "João Silva", "Porteiro","07:30 as 19:30" , "99888-1122", true);
+        Colaboradores colaborador2 = new Colaboradores(2, "Carlos Souza", "Porteiro","19:30 as 07:30" , "99777-2233", true);
+        Colaboradores colaborador3 = new Colaboradores(3, "Ana Lima", "Porteiro","07:30 as 19:30" , "99666-3344", true);
+        Colaboradores colaborador4 = new Colaboradores(4, "Fernando Oliveira", "Porteiro","19:30 as 07:30", "99555-4455", true);
+        Colaboradores colaborador5 = new Colaboradores(5, "Mariana Costa", "Serviços Gerais","07:30 as 17:30", "99444-5566", true);
+
+        Portaria portaria1 = new Portaria(colaborador1);
+        Portaria portaria2 = new Portaria(colaborador2);
+        Portaria portaria3 = new Portaria(colaborador3);
+        Portaria portaria4 = new Portaria(colaborador4);
 
         Boletos boleto1 = new Boletos(1, 150.75, false);
-        Boletos boleto2 = new Boletos(2, 220.50, true);
+        Boletos boleto2 = new Boletos(2, 220.50, false);
         Boletos boleto3 = new Boletos(3, 130.00, false);
 
         Pagamentos pagamento1 = new Pagamentos(ap1, 500.75, "2025-04-15");
         Pagamentos pagamento2 = new Pagamentos(ap2, 600.50, "2025-04-16");
         Pagamentos pagamento3 = new Pagamentos(ap3, 450.00, "2025-04-17");
-        Pagamentos pagamento4 = new Pagamentos(ap5, 220.00, "2025-04-18");
+        Pagamentos pagamento4 = new Pagamentos(ap4, 220.00, "2025-04-18");
+        Pagamentos pagamento5 = new Pagamentos(ap5, 370.50, "2025-04-27");
 
-        Debitos debito1 = new Debitos(ap4, 350.75, "Pagamento de água atrasado");
-        Debitos debito2 = new Debitos(ap5, 500.00, "Taxa de condomínio não paga");
+        Debitos debito1 = new Debitos(ap1, 350.75, "Pagamento de água atrasado");
+        Debitos debito2 = new Debitos(ap2, 400.00, "Taxa de condomínio não paga");
+        Debitos debito3 = new Debitos(ap3, 350.00, "Multa de Barulho");
+        Debitos debito4 = new Debitos(ap4, 232.25, "Reforma garagem");
+        Debitos debito5 = new Debitos(ap5, 189.49, "Taxa de condomínio não paga");
 
-        Condominio condominio1 = new Condominio(ap1,morador1,garagem1,pagamento1);
-        Condominio condominio2 = new Condominio(ap2,morador2,garagem2,pagamento2);
-        Condominio condominio3 = new Condominio(ap3,morador3,garagem3,pagamento3);
-        Condominio condominio4 = new Condominio(ap4,morador4,garagem4,debito1);
-        Condominio condominio5 = new Condominio(ap5,morador5,garagem5,pagamento4,debito2);
+        Condominio condominio1 = new Condominio(ap1,morador1,garagem1,pagamento1,debito1);
+        Condominio condominio2 = new Condominio(ap2,morador2,garagem2,pagamento2,debito2);
+        Condominio condominio3 = new Condominio(ap3,morador3,garagem3,pagamento3,debito3);
+        Condominio condominio4 = new Condominio(ap4,morador4,garagem4,pagamento4,debito4);
+        Condominio condominio5 = new Condominio(ap5,morador5,garagem5,pagamento5,debito5);
+
         Condominio dadosPagamentos = new Condominio();
         Condominio dadosDebitos = new Condominio();
+
         dadosPagamentos.setPagamentosTotais(pagamento1.getValorBoleto() + pagamento2.getValorBoleto()+ pagamento3.getValorBoleto() + pagamento4.getValorBoleto());
         dadosDebitos.setDebitosTotais(debito1.getValorDebito() + debito2.getValorDebito());
 
@@ -82,7 +96,6 @@ public class Main {
         );
 
 
-
        JOptionPane.showMessageDialog(null,
                "Dados Colaboradores:" +
                        "\nID Colaboradores: " + colaborador1.getIdColaborador() + ", " + colaborador2.getIdColaborador() + ", " + colaborador3.getIdColaborador()
@@ -100,7 +113,10 @@ public class Main {
                        (colaborador4.isAtivo() ? "Sim" : "Não") + ", " +
                        (colaborador5.isAtivo() ? "Sim" : "Não")
        );
-
+         portaria1.exibirInformacoes();
+         portaria2.exibirInformacoes();
+         portaria3.exibirInformacoes();
+         portaria4.exibirInformacoes();
 
        JOptionPane.showMessageDialog(null,
                "Dados Apartamentos:" +
@@ -137,18 +153,21 @@ public class Main {
        JOptionPane.showMessageDialog(null,
                "Dados Pagamentos: "+
                        "\nApartamento que pagou: "+ pagamento1.getApartamento().getNumeroApartamento()+", " + pagamento2.getApartamento().getNumeroApartamento()
-                        + ", " + pagamento3.getApartamento().getNumeroApartamento() + ", " + pagamento4.getApartamento().getNumeroApartamento() +
+                        + ", " + pagamento3.getApartamento().getNumeroApartamento() + ", " + pagamento4.getApartamento().getNumeroApartamento() + pagamento5.getApartamento().getNumeroApartamento()+
                        "\nValor pagamento: R$"+pagamento1.getValorBoleto()+", R$"+ pagamento2.getValorBoleto()+", R$" + pagamento3.getValorBoleto()
-                        +", R$"+ pagamento4.getValorBoleto()+
+                        +", R$"+ pagamento4.getValorBoleto()+", R$"+pagamento5.getValorBoleto()+
                        "\nData pagamento: "+pagamento1.getDataPagamento()+", " + pagamento2.getDataPagamento()+", " + pagamento3.getDataPagamento()
-                        +", "+ pagamento4.getDataPagamento()
+                        +", "+ pagamento4.getDataPagamento()+", "+pagamento5.getDataPagamento()
        );
 
        JOptionPane.showMessageDialog(null,
                "Dados Débitos: " +
                        "\nApartamento devedor: " +debito1.getApartamento().getNumeroApartamento()+", "+debito2.getApartamento().getNumeroApartamento()+
-                       "\nValor devido: R$"+debito1.getValorDebito()+", "+debito2.getValorDebito()+
-                       "\nDescrição do débito: "+debito1.getDescricaoDebito()+", " + debito2.getDescricaoDebito()
+                       ", "+debito3.getApartamento().getNumeroApartamento()+", "+debito4.getApartamento().getNumeroApartamento()+", "+debito5.getApartamento().getNumeroApartamento()+
+                       "\nValor devido: R$"+debito1.getValorDebito()+", R$"+debito2.getValorDebito()+", R$"+debito3.getValorDebito()+", R$"+debito4.getValorDebito()+
+                       ", R$"+debito5.getValorDebito()+
+                       "\nDescrição do débito: "+debito1.getDescricaoDebito()+", " + debito2.getDescricaoDebito()+", " + debito3.getDescricaoDebito()
+                       +", " + debito4.getDescricaoDebito()+", " + debito5.getDescricaoDebito()
        );
 
        JOptionPane.showMessageDialog(null,
@@ -198,15 +217,5 @@ public class Main {
                        "\n--------------------------------------------------------------"
                );
 
-
-
-       // verificar construtores com if
-        // se o valor do debito ou pagamento estiver zerado, setar ele pra zero
-        // ai para de dar erro na linha 160
-
-        // fazer a criação de turnos dos porteiros
-        // verificar o colaborador atual usando o hórario da consulta atual do pc, exemplo
-        // consulta feita 12:00, porteiro x, consulta feita 19, porteiro y
-        // pode ser feito no gpt de boa
     }
 }
