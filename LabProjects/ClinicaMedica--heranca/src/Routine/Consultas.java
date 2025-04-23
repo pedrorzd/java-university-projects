@@ -8,7 +8,7 @@ import java.util.Date;
 public class Consultas {
     //composicao paciente
     private int id;
-    private String TipoConsulta;
+    private String tipoConsulta;
     private String tipo;
     private Pacientes paciente;
     private Medicos medico;
@@ -18,7 +18,7 @@ public class Consultas {
 
     public Consultas(int id, String tipoConsulta, String tipo, Pacientes paciente, Medicos medico, Date dataHora, String status, String anotacoes) {
         this.id = id;
-        TipoConsulta = tipoConsulta;
+        this.tipoConsulta = tipoConsulta;
         this.tipo = tipo;
         this.paciente = paciente;
         this.medico = medico;
@@ -36,11 +36,11 @@ public class Consultas {
     }
 
     public String getTipoConsulta() {
-        return TipoConsulta;
+        return tipoConsulta;
     }
 
     public void setTipoConsulta(String tipoConsulta) {
-        TipoConsulta = tipoConsulta;
+        this.tipoConsulta = tipoConsulta;
     }
 
     public String getTipo() {

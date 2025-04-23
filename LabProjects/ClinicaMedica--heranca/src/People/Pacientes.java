@@ -1,6 +1,7 @@
 package People;
 
 import Administrative.PlanosDeSaude;
+import Validation.Validacao;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,6 +41,11 @@ public class Pacientes extends PlanosDeSaude {
 
     public String getCpf() {
         return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        Validacao.validarCpf(cpf);
+        this.cpf = cpf;
     }
 
     public String getNome() {

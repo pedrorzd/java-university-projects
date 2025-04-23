@@ -1,5 +1,7 @@
 package People;
 
+import Validation.Validacao;
+
 import java.util.Date;
 
 public class Medicos {
@@ -38,6 +40,7 @@ public class Medicos {
     }
 
     public void setNome(String nome) {
+        Validacao.validarNome(nome);
         this.nome = nome;
     }
 
@@ -56,8 +59,6 @@ public class Medicos {
     public void setAtendeTelemedicina(boolean atendeTelemedicina) {
         this.atendeTelemedicina = atendeTelemedicina;
     }
-
-
 
     public boolean estaDisponivel(Date data){
         return false;
