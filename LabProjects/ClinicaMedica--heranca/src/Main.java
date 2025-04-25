@@ -81,17 +81,17 @@ try {
     Pacientes paciente4 = new Pacientes(4, "321.654.987-00", "Ana Costa", "666666666", "Av. I, 101", "ana@email.com", sdf.parse("30/06/1988"), alergias4, plano4);
     Pacientes paciente5 = new Pacientes(5, "741.852.963-00", "Roberto Souza", "555555555", "Rua J, 202", "roberto@email.com", sdf.parse("12/11/1995"), alergias5, plano5);
 
-    AnotacoesMedicas anotacao1 = new AnotacoesMedicas(1, new Date(), "Anotação sobre consulta geral.", medico1, paciente1);
-    AnotacoesMedicas anotacao2 = new AnotacoesMedicas(2, new Date(), "Anotação sobre consulta cardiológica.", medico2, paciente2);
-    AnotacoesMedicas anotacao3 = new AnotacoesMedicas(3, new Date(), "Anotação sobre consulta pediátrica.", medico3, paciente3);
-    AnotacoesMedicas anotacao4 = new AnotacoesMedicas(4, new Date(), "Anotação sobre consulta ortopédica.", medico4, paciente4);
-    AnotacoesMedicas anotacao5 = new AnotacoesMedicas(5, new Date(), "Anotação sobre consulta dermatológica.", medico5, paciente5);
+    AnotacoesMedicas anotacao1 = new AnotacoesMedicas(1, new Date(), "Paciente com boa saúde.", medico1, paciente1);
+    AnotacoesMedicas anotacao2 = new AnotacoesMedicas(2, new Date(), "Paciente com histórico de problemas cardíacos.", medico2, paciente2);
+    AnotacoesMedicas anotacao3 = new AnotacoesMedicas(3, new Date(), "Consulta para acompanhamento de crescimento.", medico3, paciente3);
+    AnotacoesMedicas anotacao4 = new AnotacoesMedicas(4, new Date(), "Paciente com lesão no joelho.", medico4, paciente4);
+    AnotacoesMedicas anotacao5 = new AnotacoesMedicas(5, new Date(), "Consulta de acompanhamento de tratamento dermatológico.", medico5, paciente5);
 
-    Consultas consulta1 = new Consultas(1, "Consulta Geral", "Presencial", paciente1, medico1, new Date(), "Concluída", "Paciente com boa saúde.");
-    Consultas consulta2 = new Consultas(2, "Consulta Cardiológica", "Presencial", paciente2, medico2, new Date(), "Pendente", "Paciente com histórico de problemas cardíacos.");
-    Consultas consulta3 = new Consultas(3, "Consulta Pediátrica", "Telemedicina", paciente3, medico3, new Date(), "Concluída", "Consulta para acompanhamento de crescimento.");
-    Consultas consulta4 = new Consultas(4, "Consulta Ortopédica", "Presencial", paciente4, medico4, new Date(), "Cancelada", "Paciente com lesão no joelho.");
-    Consultas consulta5 = new Consultas(5, "Consulta Dermatológica", "Telemedicina", paciente5, medico5, new Date(), "Concluída", "Consulta de acompanhamento de tratamento dermatológico.");
+    Consultas consulta1 = new Consultas(1, "Consulta Geral", "Presencial", paciente1, medico1, new Date(), "Concluída", anotacao1);
+    Consultas consulta2 = new Consultas(2, "Consulta Cardiológica", "Presencial", paciente2, medico2, new Date(), "Pendente", anotacao2);
+    Consultas consulta3 = new Consultas(3, "Consulta Pediátrica", "Telemedicina", paciente3, medico3, new Date(), "Concluída", anotacao3);
+    Consultas consulta4 = new Consultas(4, "Consulta Ortopédica", "Presencial", paciente4, medico4, new Date(), "Cancelada", anotacao4);
+    Consultas consulta5 = new Consultas(5, "Consulta Dermatológica", "Telemedicina", paciente5, medico5, new Date(), "Concluída", anotacao5);
 
     Exames exame1 = new Exames(1, "12345", "Exame de Sangue", "Laboratório A", new Date(), "Resultado normal");
     Exames exame2 = new Exames(2, "23456", "Exame de Urina", "Laboratório B", new Date(), "Resultado alterado");
@@ -105,11 +105,11 @@ try {
     ArrayList<Medicamentos> medicamentos4 = new ArrayList<>(Arrays.asList(medicamento2, medicamento3));
     ArrayList<Medicamentos> medicamentos5 = new ArrayList<>(Arrays.asList(medicamento4, medicamento5));
 
-    Receitas receita1 = new Receitas(1, new Date(), medicamentos1, medico1);
-    Receitas receita2 = new Receitas(2, new Date(), medicamentos2, medico2);
-    Receitas receita3 = new Receitas(3, new Date(), medicamentos3, medico3);
-    Receitas receita4 = new Receitas(4, new Date(), medicamentos4, medico4);
-    Receitas receita5 = new Receitas(5, new Date(), medicamentos5, medico5);
+    Receitas receita1 = new Receitas(1, new Date(), medicamentos1, medico1, paciente1);
+    Receitas receita2 = new Receitas(2, new Date(), medicamentos2, medico2, paciente2);
+    Receitas receita3 = new Receitas(3, new Date(), medicamentos3, medico3, paciente3);
+    Receitas receita4 = new Receitas(4, new Date(), medicamentos4, medico4, paciente4);
+    Receitas receita5 = new Receitas(5, new Date(), medicamentos5, medico5, paciente5);
 
     VideoChamada chamada1 = new VideoChamada(1, consulta1, "https://linkClinica.com", true);
     VideoChamada chamada2 = new VideoChamada(2, consulta2, "https://linkClinica.com", false);
@@ -412,14 +412,138 @@ try {
                     "\nStatus: "+consulta5.getStatus()+
                     "\nAnotações: "+consulta5.getAnotacoes()+
                     "\n--------------------------------------"
+    );
+
+    JOptionPane.showMessageDialog(null,
+            "Exames realizados: "+
+                    "\nId exame: "+exame1.getId()+
+                    "\nCódigo TUSS: "+exame1.getCodigoTUSS()+
+                    "\nDescrição: "+exame1.getDescricao()+
+                    "\nLaboratório: "+exame1.getLaboratorio()+
+                    "\nData do exame: "+exame1.getDataRealizacao()+
+                    "\nResultado exame: "+exame1.getResultado()+
+                    "\n-------------------------------------------"+
+                    "\nId exame: "+exame2.getId()+
+                    "\nCódigo TUSS: "+exame2.getCodigoTUSS()+
+                    "\nDescrição: "+exame2.getDescricao()+
+                    "\nLaboratório: "+exame2.getLaboratorio()+
+                    "\nData do exame: "+exame2.getDataRealizacao()+
+                    "\nResultado exame: "+exame2.getResultado()+
+                    "\n-------------------------------------------"+
+                    "\nId exame: "+exame3.getId()+
+                    "\nCódigo TUSS: "+exame3.getCodigoTUSS()+
+                    "\nDescrição: "+exame3.getDescricao()+
+                    "\nLaboratório: "+exame3.getLaboratorio()+
+                    "\nData do exame: "+exame3.getDataRealizacao()+
+                    "\nResultado exame: "+exame3.getResultado()+
+                    "\n-------------------------------------------"+
+                    "\nId exame: "+exame4.getId()+
+                    "\nCódigo TUSS: "+exame4.getCodigoTUSS()+
+                    "\nDescrição: "+exame4.getDescricao()+
+                    "\nLaboratório: "+exame4.getLaboratorio()+
+                    "\nData do exame: "+exame4.getDataRealizacao()+
+                    "\nResultado exame: "+exame4.getResultado()+
+                    "\n-------------------------------------------"+
+                    "\nId exame: "+exame5.getId()+
+                    "\nCódigo TUSS: "+exame5.getCodigoTUSS()+
+                    "\nDescrição: "+exame5.getDescricao()+
+                    "\nLaboratório: "+exame5.getLaboratorio()+
+                    "\nData do exame: "+exame5.getDataRealizacao()+
+                    "\nResultado exame: "+exame5.getResultado()+
+                    "\n-------------------------------------------"
+    );
+
+    JOptionPane.showMessageDialog(null,
+            "Receitas emitidas: "+
+                    "\nId Receita: "+receita1.getId()+
+                    "\nData receita: "+receita1.getData()+
+                    "\nMedicamentos receitados: "+receita1.getMedicamentos()+
+                    "\nPrescritor: "+receita1.getPrescritor().getNome()+
+                    "\nPaciente: "+receita1.getPaciente().getNome()+
+                    "\n-----------------------------------------------"+
+                    "\nId Receita: "+receita2.getId()+
+                    "\nData receita: "+receita2.getData()+
+                    "\nMedicamentos receitados: "+receita2.getMedicamentos()+
+                    "\nPrescritor: "+receita2.getPrescritor().getNome()+
+                    "\nPaciente: "+receita2.getPaciente().getNome()+
+                    "\n-----------------------------------------------"+
+                    "\nId Receita: "+receita3.getId()+
+                    "\nData receita: "+receita3.getData()+
+                    "\nMedicamentos receitados: "+receita3.getMedicamentos()+
+                    "\nPrescritor: "+receita3.getPrescritor().getNome()+
+                    "\nPaciente: "+receita3.getPaciente().getNome()+
+                    "\n-----------------------------------------------"+
+                    "\nId Receita: "+receita4.getId()+
+                    "\nData receita: "+receita4.getData()+
+                    "\nMedicamentos receitados: "+receita4.getMedicamentos()+
+                    "\nPrescritor: "+receita4.getPrescritor().getNome()+
+                    "\nPaciente: "+receita4.getPaciente().getNome()+
+                    "\n-----------------------------------------------"+
+                    "\nId Receita: "+receita5.getId()+
+                    "\nData receita: "+receita5.getData()+
+                    "\nMedicamentos receitados: "+receita5.getMedicamentos()+
+                    "\nPrescritor: "+receita5.getPrescritor().getNome()+
+                    "\nPaciente: "+receita5.getPaciente().getNome()+
+                    "\n-----------------------------------------------"
+    );
+
+    JOptionPane.showMessageDialog(null,
+            "Consultas online:"+
+                    "\nId Consulta: "+consulta1.getId()+
+                    "\nTipo consulta: "+consulta1.getTipoConsulta()+
+                    "\nConsulta a distância ou presencial? "+consulta1.getTipo()+
+                    "\nPaciente: "+consulta1.getPaciente().getNome()+
+                    "\nMédico: "+consulta1.getMedico().getNome()+
+                    "\nData: "+consulta1.getDataHora()+
+                    "\nStatus: "+consulta1.getStatus()+
+                    "\n-----------------------------------------------"+
+                    "\nId Consulta: "+consulta2.getId()+
+                    "\nTipo consulta: "+consulta2.getTipoConsulta()+
+                    "\nConsulta a distância ou presencial? "+consulta2.getTipo()+
+                    "\nPaciente: "+consulta2.getPaciente().getNome()+
+                    "\nMédico: "+consulta2.getMedico().getNome()+
+                    "\nData: "+consulta2.getDataHora()+
+                    "\nStatus: "+consulta2.getStatus()+
+                    "\n-----------------------------------------------"+
+                    "\nId Consulta: "+ consulta3.getId()+
+                    "\nTipo consulta: "+ consulta3.getTipoConsulta()+
+                    "\nConsulta a distância ou presencial? "+ consulta3.getTipo()+
+                    "\nPaciente: "+ consulta3.getPaciente().getNome()+
+                    "\nMédico: "+ consulta3.getMedico().getNome()+
+                    "\nData: "+ consulta3.getDataHora()+
+                    "\nStatus: "+ consulta3.getStatus()+
+                    "\n-----------------------------------------------"+
+                    "\nId Consulta: "+consulta4.getId()+
+                    "\nTipo consulta: "+consulta4.getTipoConsulta()+
+                    "\nConsulta a distância ou presencial? "+consulta4.getTipo()+
+                    "\nPaciente: "+consulta4.getPaciente().getNome()+
+                    "\nMédico: "+consulta4.getMedico().getNome()+
+                    "\nData: "+consulta4.getDataHora()+
+                    "\nStatus: "+consulta4.getStatus()+
+                    "\n-----------------------------------------------"+
+                    "\nId Consulta: "+consulta5.getId()+
+                    "\nTipo consulta: "+consulta5.getTipoConsulta()+
+                    "\nConsulta a distância ou presencial? "+consulta5.getTipo()+
+                    "\nPaciente: "+consulta5.getPaciente().getNome()+
+                    "\nMédico: "+consulta5.getMedico().getNome()+
+                    "\nData: "+consulta5.getDataHora()+
+                    "\nStatus: "+consulta5.getStatus()+
+                    "\n-----------------------------------------------"
+
             );
-
-
 
 }catch (ParseException e){
     System.out.println("Erro ao criar despesas."+e.getMessage());
 
+}finally {
+    JOptionPane.showMessageDialog(null,"Programa finalizado com sucesso!");
 }
+
+
+
+
+
+
 
     }
 }

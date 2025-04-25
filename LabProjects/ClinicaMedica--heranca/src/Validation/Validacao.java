@@ -19,7 +19,7 @@ public class Validacao {
 
         public static void validarTelefone(String telefone){
             if(telefone == null || !telefone.matches("^\\(?(\\d{2})\\)?[\\s-]?(\\d{4,5})[\\s-]?(\\d{4})$")){
-                throw new IllegalArgumentException("CPF Inválido!");
+                throw new IllegalArgumentException("Telefone Inválido!");
             }
         }
 

@@ -1,5 +1,7 @@
 package People;
 
+import Validation.Validacao;
+
 import java.util.Date;
 
 public class Usuario {
@@ -35,11 +37,16 @@ public class Usuario {
         return cpf;
     }
 
+    public void setCpf(String cpf) {
+        Validacao.validarCpf(cpf);
+        this.cpf = cpf;}
+
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
+        Validacao.validarNome(nome);
         this.nome = nome;
     }
 
@@ -48,6 +55,7 @@ public class Usuario {
     }
 
     public void setTelefone(String telefone) {
+        Validacao.validarTelefone(telefone);
         this.telefone = telefone;
     }
 
@@ -64,6 +72,7 @@ public class Usuario {
     }
 
     public void setEmail(String email) {
+        Validacao.validarEmail(email);
         this.email = email;
     }
 

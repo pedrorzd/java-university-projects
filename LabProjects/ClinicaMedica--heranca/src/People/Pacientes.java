@@ -53,6 +53,7 @@ public class Pacientes extends PlanosDeSaude {
     }
 
     public void setNome(String nome) {
+        Validacao.validarNome(nome);
         this.nome = nome;
     }
 
@@ -61,6 +62,7 @@ public class Pacientes extends PlanosDeSaude {
     }
 
     public void setTelefone(String telefone) {
+        Validacao.validarTelefone(telefone);
         this.telefone = telefone;
     }
 
@@ -77,6 +79,7 @@ public class Pacientes extends PlanosDeSaude {
     }
 
     public void setEmail(String email) {
+        Validacao.validarEmail(email);
         this.email = email;
     }
 

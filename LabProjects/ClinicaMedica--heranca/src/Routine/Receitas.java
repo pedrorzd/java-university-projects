@@ -2,6 +2,7 @@ package Routine;
 
 import Estoques.Medicamentos;
 import People.Medicos;
+import People.Pacientes;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,13 +12,15 @@ public class Receitas extends Medicos {
     private Date data;
     private ArrayList<Medicamentos> medicamentos;
     private Medicos prescritor;
+    private Pacientes paciente;
 
-    public Receitas(int id, Date data, ArrayList<Medicamentos> medicamentos, Medicos prescritor) {
+    public Receitas(int id, Date data, ArrayList<Medicamentos> medicamentos, Medicos prescritor, Pacientes paciente) {
         super(prescritor.getId(), prescritor.getCrm(), prescritor.getNome(), prescritor.getEspecialidade(), prescritor.isAtendeTelemedicina());
         this.id = id;
         this.data = data;
         this.medicamentos = medicamentos;
         this.prescritor = prescritor;
+        this.paciente = paciente;
     }
 
     public int getId() {
@@ -50,6 +53,14 @@ public class Receitas extends Medicos {
 
     public void setPrescritor(Medicos prescritor) {
         this.prescritor = prescritor;
+    }
+
+    public Pacientes getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Pacientes paciente) {
+        this.paciente = paciente;
     }
 
     //vericar para adicionar medicamento

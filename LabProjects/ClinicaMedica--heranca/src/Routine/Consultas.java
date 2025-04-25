@@ -1,5 +1,6 @@
 package Routine;
 
+import People.AnotacoesMedicas.AnotacoesMedicas;
 import People.Medicos;
 import People.Pacientes;
 
@@ -14,9 +15,9 @@ public class Consultas {
     private Medicos medico;
     private Date dataHora;
     private String status;
-    private String anotacoes;
+    private AnotacoesMedicas anotacoes;
 
-    public Consultas(int id, String tipoConsulta, String tipo, Pacientes paciente, Medicos medico, Date dataHora, String status, String anotacoes) {
+    public Consultas(int id, String tipoConsulta, String tipo, Pacientes paciente, Medicos medico, Date dataHora, String status, AnotacoesMedicas anotacoes) {
         this.id = id;
         this.tipoConsulta = tipoConsulta;
         this.tipo = tipo;
@@ -83,11 +84,11 @@ public class Consultas {
         this.status = status;
     }
 
-    public String getAnotacoes() {
+    public AnotacoesMedicas getAnotacoes() {
         return anotacoes;
     }
 
-    public void setAnotacoes(String anotacoes) {
+    public void setAnotacoes(AnotacoesMedicas anotacoes) {
         this.anotacoes = anotacoes;
     }
 }
