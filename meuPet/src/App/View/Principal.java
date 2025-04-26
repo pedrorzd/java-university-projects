@@ -13,6 +13,13 @@ public class Principal extends JFrame {
     private JMenuItem jItemProdutos;
 
     public Principal(){
+        setContentPane(painelPrincipal);
+        setSize(500,500);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
+
+
         jItemClientes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
