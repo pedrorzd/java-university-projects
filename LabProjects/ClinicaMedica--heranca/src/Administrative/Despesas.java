@@ -6,9 +6,9 @@ public class Despesas {
     private int id;
     private String descricao;
     private double valor;
-    private Date data;
+    private String data;
 
-    public Despesas(int id, String descricao, double valor, Date data) {
+    public Despesas(int id, String descricao, double valor, String data) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
@@ -39,11 +39,11 @@ public class Despesas {
         this.valor = valor;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 }

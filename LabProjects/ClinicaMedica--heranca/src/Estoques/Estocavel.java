@@ -5,6 +5,6 @@ import java.util.Date;
 public interface Estocavel {
     int getId();
     String getDescricao();
-    Date getDataValidade();
+    String getDataValidade();
     int getQuantidade();
 }

@@ -7,13 +7,13 @@ import java.util.Date;
 
 public class AnotacoesMedicas extends Medicos {
     private int id;
-    private Date data;
+    private String data;
     private String texto;
     private Medicos medicoResponsavel;
     private Pacientes paciente;
     //composicao
 
-    public AnotacoesMedicas(int id, Date data, String texto, Medicos medicoResponsavel, Pacientes paciente) {
+    public AnotacoesMedicas(int id, String data, String texto, Medicos medicoResponsavel, Pacientes paciente) {
         super(medicoResponsavel.getId(), medicoResponsavel.getCrm(), medicoResponsavel.getNome(),
                 medicoResponsavel.getEspecialidade(), medicoResponsavel.isAtendeTelemedicina());
         this.id = id;
@@ -31,11 +31,11 @@ public class AnotacoesMedicas extends Medicos {
         this.id = id;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 

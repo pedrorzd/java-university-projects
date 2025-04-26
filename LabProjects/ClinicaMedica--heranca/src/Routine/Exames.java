@@ -9,10 +9,10 @@ public class Exames {
     private String codigoTUSS; // Padrão ANS
     private String descricao;
     private String laboratorio;
-    private Date dataRealizacao;
+    private String dataRealizacao;
     private String resultado;
 
-    public Exames(int id, String codigoTUSS, String descricao, String laboratorio, Date dataRealizacao, String resultado) {
+    public Exames(int id, String codigoTUSS, String descricao, String laboratorio, String dataRealizacao, String resultado) {
         this.id = id;
         this.codigoTUSS = codigoTUSS;
         this.descricao = descricao;
@@ -53,11 +53,11 @@ public class Exames {
         this.laboratorio = laboratorio;
     }
 
-    public Date getDataRealizacao() {
+    public String getDataRealizacao() {
         return dataRealizacao;
     }
 
-    public void setDataRealizacao(Date dataRealizacao) {
+    public void setDataRealizacao(String dataRealizacao) {
         this.dataRealizacao = dataRealizacao;
     }
 

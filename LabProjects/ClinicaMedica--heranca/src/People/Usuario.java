@@ -11,10 +11,10 @@ public class Usuario {
     private String telefone ;
     private String endereco ;
     private String email ;
-    private Date dataNascimento ;
+    private String dataNascimento ;
     private String cargo;
 
-    public Usuario(int id, String cpf, String nome, String telefone, String endereco, String email, Date dataNascimento, String cargo) {
+    public Usuario(int id, String cpf, String nome, String telefone, String endereco, String email, String dataNascimento, String cargo) {
         this.id = id;
         this.cpf = cpf;
         this.nome = nome;
@@ -76,7 +76,7 @@ public class Usuario {
         this.email = email;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 

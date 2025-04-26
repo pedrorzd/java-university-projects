@@ -9,12 +9,12 @@ import java.util.Date;
 
 public class Receitas extends Medicos {
     private int id;
-    private Date data;
-    private ArrayList<Medicamentos> medicamentos;
+    private String data;
+    private ArrayList<String> medicamentos;
     private Medicos prescritor;
     private Pacientes paciente;
 
-    public Receitas(int id, Date data, ArrayList<Medicamentos> medicamentos, Medicos prescritor, Pacientes paciente) {
+    public Receitas(int id, String data, ArrayList<String> medicamentos, Medicos prescritor, Pacientes paciente) {
         super(prescritor.getId(), prescritor.getCrm(), prescritor.getNome(), prescritor.getEspecialidade(), prescritor.isAtendeTelemedicina());
         this.id = id;
         this.data = data;
@@ -31,19 +31,19 @@ public class Receitas extends Medicos {
         this.id = id;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public ArrayList<Medicamentos> getMedicamentos() {
+    public ArrayList<String> getMedicamentos() {
         return medicamentos;
     }
 
-    public void setMedicamentos(ArrayList<Medicamentos> medicamentos) {
+    public void setMedicamentos(ArrayList<String> medicamentos) {
         this.medicamentos = medicamentos;
     }
 

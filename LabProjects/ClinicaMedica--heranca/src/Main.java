@@ -12,6 +12,7 @@ import Routine.Receitas;
 import Routine.VideoChamada;
 
 import javax.swing.*;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -19,13 +20,17 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar calendar = Calendar.getInstance();
+        Date data = calendar.getTime();
+        Locale brasil = new Locale("pt", "BR");
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, brasil);
 
 try {
-    Despesas despesa1 = new Despesas(1, "Compra de material de escritório", 150.75, sdf.parse("10/01/2025"));
-    Despesas despesa2 = new Despesas(2, "Pagamento de internet", 99.90, sdf.parse("05/02/2025"));
-    Despesas despesa3 = new Despesas(3, "Conta de luz", 220.50, sdf.parse("15/02/2025"));
-    Despesas despesa4 = new Despesas(4, "Serviço de limpeza", 300.00, sdf.parse("20/03/2025"));
-    Despesas despesa5 = new Despesas(5, "Manutenção de equipamentos", 180.30, sdf.parse("01/04/2025"));
+    Despesas despesa1 = new Despesas(1, "Compra de material de escritório", 150.75, "10/01/2025");
+    Despesas despesa2 = new Despesas(2, "Pagamento de internet", 99.90, "05/02/2025");
+    Despesas despesa3 = new Despesas(3, "Conta de luz", 220.50, "15/02/2025");
+    Despesas despesa4 = new Despesas(4, "Serviço de limpeza", 300.00, "20/03/2025");
+    Despesas despesa5 = new Despesas(5, "Manutenção de equipamentos", 180.30, "01/04/2025");
 
     ArrayList<String> procedimentos1 = new ArrayList<>(Arrays.asList("Consulta", "Exame de sangue"));
     ArrayList<String> procedimentos2 = new ArrayList<>(Arrays.asList("Raio-X", "Ultrassonografia"));
@@ -33,23 +38,23 @@ try {
     ArrayList<String> procedimentos4 = new ArrayList<>(Arrays.asList("Consulta psicológica", "Nutricionista"));
     ArrayList<String> procedimentos5 = new ArrayList<>(Arrays.asList("Vacinação", "Check-up anual"));
 
-    PlanosDeSaude plano1 = new PlanosDeSaude("Plano Básico", sdf.parse("01/01/2024"), sdf.parse("31/12/2024"), procedimentos1);
-    PlanosDeSaude plano2 = new PlanosDeSaude("Plano Intermediário", sdf.parse("01/02/2024"), sdf.parse("31/01/2025"), procedimentos2);
-    PlanosDeSaude plano3 = new PlanosDeSaude("Plano Premium", sdf.parse("15/03/2024"), sdf.parse("14/03/2025"), procedimentos3);
-    PlanosDeSaude plano4 = new PlanosDeSaude("Plano Familiar", sdf.parse("01/05/2024"), sdf.parse("30/04/2025"), procedimentos4);
-    PlanosDeSaude plano5 = new PlanosDeSaude("Plano Empresarial", sdf.parse("10/06/2024"), sdf.parse("09/06/2025"), procedimentos5);
+    PlanosDeSaude plano1 = new PlanosDeSaude("Plano Básico", "01/01/2024", "31/12/2024", procedimentos1);
+    PlanosDeSaude plano2 = new PlanosDeSaude("Plano Intermediário", "01/02/2024", "31/01/2025", procedimentos2);
+    PlanosDeSaude plano3 = new PlanosDeSaude("Plano Premium", "15/03/2024", "14/03/2025", procedimentos3);
+    PlanosDeSaude plano4 = new PlanosDeSaude("Plano Familiar", "01/05/2024", "30/04/2025", procedimentos4);
+    PlanosDeSaude plano5 = new PlanosDeSaude("Plano Empresarial", "10/06/2024", "09/06/2025", procedimentos5);
 
-    ItensEstoque item1 = new ItensEstoque(10, "Álcool em gel", 50, sdf.parse("10/12/2025"), "Higiene");
-    ItensEstoque item2 = new ItensEstoque(20, "Luvas descartáveis", 200, sdf.parse("01/11/2025"), "Proteção");
-    ItensEstoque item3 = new ItensEstoque(30, "Soro fisiológico", 80, sdf.parse("15/10/2025"), "Medicamento");
-    ItensEstoque item4 = new ItensEstoque(40, "Máscaras cirúrgicas", 150, sdf.parse("20/09/2025"), "Proteção");
-    ItensEstoque item5 = new ItensEstoque(50, "Algodão", 100, sdf.parse("05/01/2026"), "Curativo");
+    ItensEstoque item1 = new ItensEstoque(10, "Álcool em gel", 50, "10/12/2025", "Higiene");
+    ItensEstoque item2 = new ItensEstoque(20, "Luvas descartáveis", 200, "01/11/2025", "Proteção");
+    ItensEstoque item3 = new ItensEstoque(30, "Soro fisiológico", 80, "15/10/2025", "Medicamento");
+    ItensEstoque item4 = new ItensEstoque(40, "Máscaras cirúrgicas", 150, "20/09/2025", "Proteção");
+    ItensEstoque item5 = new ItensEstoque(50, "Algodão", 100, "05/01/2026", "Curativo");
 
-    Medicamentos medicamento1 = new Medicamentos(100, "Paracetamol 500mg", sdf.parse("15/09/2025"),7 , 20, "1 comprimido a cada 8 horas");
-    Medicamentos medicamento2 = new Medicamentos(200, "Ibuprofeno 400mg", sdf.parse("01/10/2025"),45 , 30, "1 comprimido após as refeições");
-    Medicamentos medicamento3 = new Medicamentos(300, "Amoxicilina 500mg", sdf.parse("22/08/2025"),32 , 21, "1 comprimido de 8 em 8 horas por 7 dias");
-    Medicamentos medicamento4 = new Medicamentos(400, "Loratadina 10mg", sdf.parse("10/12/2025"), 27, 10, "1 comprimido por dia");
-    Medicamentos medicamento5 = new Medicamentos(500, "Omeprazol 20mg", sdf.parse("05/11/2025"), 18, 14, "1 comprimido em jejum");
+    Medicamentos medicamento1 = new Medicamentos(100, "Paracetamol 500mg", "15/09/2025",7 , 20, "1 comprimido a cada 8 horas");
+    Medicamentos medicamento2 = new Medicamentos(200, "Ibuprofeno 400mg", "01/10/2025",45 , 30, "1 comprimido após as refeições");
+    Medicamentos medicamento3 = new Medicamentos(300, "Amoxicilina 500mg", "22/08/2025",32 , 21, "1 comprimido de 8 em 8 horas por 7 dias");
+    Medicamentos medicamento4 = new Medicamentos(400, "Loratadina 10mg", "10/12/2025", 27, 10, "1 comprimido por dia");
+    Medicamentos medicamento5 = new Medicamentos(500, "Omeprazol 20mg", "05/11/2025", 18, 14, "1 comprimido em jejum");
 
     Medicos medico1 = new Medicos(1, "123456-SP", "Dra. Ana Souza", "Clínica Geral", true);
     Medicos medico2 = new Medicos(2, "654321-SP", "Dr. Paulo Mendes", "Cardiologia", false);
@@ -57,17 +62,17 @@ try {
     Medicos medico4 = new Medicos(4, "445566-MG", "Dr. Ricardo Alves", "Ortopedia", false);
     Medicos medico5 = new Medicos(5, "778899-BA", "Dra. Fernanda Torres", "Dermatologia", true);
 
-    Usuario usuario1 = new Usuario(1, "123.456.789-00", "Lucas Martins", "11999999999", "Rua A, 123", "lucas@email.com", sdf.parse("10/04/1990"), "Administrador");
-    Usuario usuario2 = new Usuario(2, "987.654.321-00", "Juliana Costa", "21988888888", "Av. B, 456", "juliana@email.com", sdf.parse("25/12/1985"), "Recepcionista");
-    Usuario usuario3 = new Usuario(3, "456.789.123-00", "Rafael Lima", "31977777777", "Rua C, 789", "rafael@email.com", sdf.parse("08/03/1992"), "Enfermeiro");
-    Usuario usuario4 = new Usuario(4, "321.654.987-00", "Amanda Rocha", "11966666666", "Av. D, 101", "amanda@email.com", sdf.parse("30/06/1988"), "Médico");
-    Usuario usuario5 = new Usuario(5, "741.852.963-00", "Bruno Silva", "21955555555", "Rua E, 202", "bruno@email.com", sdf.parse("12/11/1995"), "TI");
+    Usuario usuario1 = new Usuario(1, "123.456.789-00", "Lucas Martins", "11999999999", "Rua A, 123", "lucas@email.com", "10/04/1990", "Administrador");
+    Usuario usuario2 = new Usuario(2, "987.654.321-00", "Juliana Costa", "21988888888", "Av. B, 456", "juliana@email.com", "25/12/1985", "Recepcionista");
+    Usuario usuario3 = new Usuario(3, "456.789.123-00", "Rafael Lima", "31977777777", "Rua C, 789", "rafael@email.com", "08/03/1992", "Enfermeiro");
+    Usuario usuario4 = new Usuario(4, "321.654.987-00", "Amanda Rocha", "11966666666", "Av. D, 101", "amanda@email.com", "30/06/1988", "Médico");
+    Usuario usuario5 = new Usuario(5, "741.852.963-00", "Bruno Silva", "21955555555", "Rua E, 202", "bruno@email.com", "12/11/1995", "TI");
 
-    LogsAcesso log1 = new LogsAcesso(usuario1, "Visualizou prontuário", "Visualização de dados do paciente", new Date());
-    LogsAcesso log2 = new LogsAcesso(usuario2, "Alterou consulta", "Alteração de horário da consulta", new Date());
-    LogsAcesso log3 = new LogsAcesso(usuario3, "Realizou exame", "Exame de pressão arterial", new Date());
-    LogsAcesso log4 = new LogsAcesso(usuario4, "Visualizou prontuário", "Visualização de resultados de exames", new Date());
-    LogsAcesso log5 = new LogsAcesso(usuario5, "Alterou consulta", "Alteração de dados do paciente", new Date());
+    LogsAcesso log1 = new LogsAcesso(usuario1, "Visualizou prontuário", "Visualização de dados do paciente", dateFormat.format(data));
+    LogsAcesso log2 = new LogsAcesso(usuario2, "Alterou consulta", "Alteração de horário da consulta", dateFormat.format(data));
+    LogsAcesso log3 = new LogsAcesso(usuario3, "Realizou exame", "Exame de pressão arterial", dateFormat.format(data));
+    LogsAcesso log4 = new LogsAcesso(usuario4, "Visualizou prontuário", "Visualização de resultados de exames", dateFormat.format(data));
+    LogsAcesso log5 = new LogsAcesso(usuario5, "Alterou consulta", "Alteração de dados do paciente", dateFormat.format(data));
 
     ArrayList<String> alergias1 = new ArrayList<>(Arrays.asList("Amendoim", "Pólen"));
     ArrayList<String> alergias2 = new ArrayList<>(Arrays.asList("Frutos do mar", "Lactose"));
@@ -75,41 +80,41 @@ try {
     ArrayList<String> alergias4 = new ArrayList<>(Arrays.asList("Gato", "Fumo"));
     ArrayList<String> alergias5 = new ArrayList<>(Arrays.asList("Medicamentos", "Poeira"));
 
-    Pacientes paciente1 = new Pacientes(1, "123.456.789-00", "Carlos Silva", "999999999", "Rua F, 123", "carlos@email.com", sdf.parse("10/04/1990"), alergias1, plano1);
-    Pacientes paciente2 = new Pacientes(2, "987.654.321-00", "Maria Oliveira", "888888888", "Av. G, 456", "maria@email.com", sdf.parse("25/12/1985"), alergias2, plano2);
-    Pacientes paciente3 = new Pacientes(3, "456.789.123-00", "José Pereira", "777777777", "Rua H, 789", "jose@email.com", sdf.parse("08/03/1992"), alergias3, plano3);
-    Pacientes paciente4 = new Pacientes(4, "321.654.987-00", "Ana Costa", "666666666", "Av. I, 101", "ana@email.com", sdf.parse("30/06/1988"), alergias4, plano4);
-    Pacientes paciente5 = new Pacientes(5, "741.852.963-00", "Roberto Souza", "555555555", "Rua J, 202", "roberto@email.com", sdf.parse("12/11/1995"), alergias5, plano5);
+    Pacientes paciente1 = new Pacientes(1, "123.456.789-00", "Carlos Silva", "999999999", "Rua F, 123", "carlos@email.com", "10/04/1990", alergias1, plano1);
+    Pacientes paciente2 = new Pacientes(2, "987.654.321-00", "Maria Oliveira", "888888888", "Av. G, 456", "maria@email.com", "25/12/1985", alergias2, plano2);
+    Pacientes paciente3 = new Pacientes(3, "456.789.123-00", "José Pereira", "777777777", "Rua H, 789", "jose@email.com", "08/03/1992", alergias3, plano3);
+    Pacientes paciente4 = new Pacientes(4, "321.654.987-00", "Ana Costa", "666666666", "Av. I, 101", "ana@email.com", "30/06/1988", alergias4, plano4);
+    Pacientes paciente5 = new Pacientes(5, "741.852.963-00", "Roberto Souza", "555555555", "Rua J, 202", "roberto@email.com", "12/11/1995", alergias5, plano5);
 
-    AnotacoesMedicas anotacao1 = new AnotacoesMedicas(1, new Date(), "Paciente com boa saúde.", medico1, paciente1);
-    AnotacoesMedicas anotacao2 = new AnotacoesMedicas(2, new Date(), "Paciente com histórico de problemas cardíacos.", medico2, paciente2);
-    AnotacoesMedicas anotacao3 = new AnotacoesMedicas(3, new Date(), "Consulta para acompanhamento de crescimento.", medico3, paciente3);
-    AnotacoesMedicas anotacao4 = new AnotacoesMedicas(4, new Date(), "Paciente com lesão no joelho.", medico4, paciente4);
-    AnotacoesMedicas anotacao5 = new AnotacoesMedicas(5, new Date(), "Consulta de acompanhamento de tratamento dermatológico.", medico5, paciente5);
+    AnotacoesMedicas anotacao1 = new AnotacoesMedicas(1, dateFormat.format(data), "Paciente com boa saúde.", medico1, paciente1);
+    AnotacoesMedicas anotacao2 = new AnotacoesMedicas(2, dateFormat.format(data), "Paciente com histórico de problemas cardíacos.", medico2, paciente2);
+    AnotacoesMedicas anotacao3 = new AnotacoesMedicas(3, dateFormat.format(data), "Consulta para acompanhamento de crescimento.", medico3, paciente3);
+    AnotacoesMedicas anotacao4 = new AnotacoesMedicas(4, dateFormat.format(data), "Paciente com lesão no joelho.", medico4, paciente4);
+    AnotacoesMedicas anotacao5 = new AnotacoesMedicas(5, dateFormat.format(data), "Consulta de acompanhamento de tratamento dermatológico.", medico5, paciente5);
 
-    Consultas consulta1 = new Consultas(1, "Consulta Geral", "Presencial", paciente1, medico1, new Date(), "Concluída", anotacao1);
-    Consultas consulta2 = new Consultas(2, "Consulta Cardiológica", "Presencial", paciente2, medico2, new Date(), "Pendente", anotacao2);
-    Consultas consulta3 = new Consultas(3, "Consulta Pediátrica", "Telemedicina", paciente3, medico3, new Date(), "Concluída", anotacao3);
-    Consultas consulta4 = new Consultas(4, "Consulta Ortopédica", "Presencial", paciente4, medico4, new Date(), "Cancelada", anotacao4);
-    Consultas consulta5 = new Consultas(5, "Consulta Dermatológica", "Telemedicina", paciente5, medico5, new Date(), "Concluída", anotacao5);
+    Consultas consulta1 = new Consultas(1, "Consulta Geral", "Presencial", paciente1, medico1, dateFormat.format(data), "Concluída", anotacao1);
+    Consultas consulta2 = new Consultas(2, "Consulta Cardiológica", "Presencial", paciente2, medico2, dateFormat.format(data), "Pendente", anotacao2);
+    Consultas consulta3 = new Consultas(3, "Consulta Pediátrica", "Telemedicina", paciente3, medico3, dateFormat.format(data), "Concluída", anotacao3);
+    Consultas consulta4 = new Consultas(4, "Consulta Ortopédica", "Presencial", paciente4, medico4, dateFormat.format(data), "Cancelada", anotacao4);
+    Consultas consulta5 = new Consultas(5, "Consulta Dermatológica", "Telemedicina", paciente5, medico5, dateFormat.format(data), "Concluída", anotacao5);
 
-    Exames exame1 = new Exames(1, "12345", "Exame de Sangue", "Laboratório A", new Date(), "Resultado normal");
-    Exames exame2 = new Exames(2, "23456", "Exame de Urina", "Laboratório B", new Date(), "Resultado alterado");
-    Exames exame3 = new Exames(3, "34567", "Raio-X de Tórax", "Laboratório C", new Date(), "Resultado normal");
-    Exames exame4 = new Exames(4, "45678", "Eletrocardiograma", "Laboratório D", new Date(), "Resultado normal");
-    Exames exame5 = new Exames(5, "56789", "Ultrassonografia Abdominal", "Laboratório E", new Date(), "Resultado alterado");
+    Exames exame1 = new Exames(1, "12345", "Exame de Sangue", "Laboratório A", dateFormat.format(data), "Resultado normal");
+    Exames exame2 = new Exames(2, "23456", "Exame de Urina", "Laboratório B", dateFormat.format(data), "Resultado alterado");
+    Exames exame3 = new Exames(3, "34567", "Raio-X de Tórax", "Laboratório C", dateFormat.format(data), "Resultado normal");
+    Exames exame4 = new Exames(4, "45678", "Eletrocardiograma", "Laboratório D", dateFormat.format(data), "Resultado normal");
+    Exames exame5 = new Exames(5, "56789", "Ultrassonografia Abdominal", "Laboratório E", dateFormat.format(data), "Resultado alterado");
 
-    ArrayList<Medicamentos> medicamentos1 = new ArrayList<>(Arrays.asList(medicamento1, medicamento2));
-    ArrayList<Medicamentos> medicamentos2 = new ArrayList<>(Arrays.asList(medicamento3, medicamento4));
-    ArrayList<Medicamentos> medicamentos3 = new ArrayList<>(Arrays.asList(medicamento5, medicamento1));
-    ArrayList<Medicamentos> medicamentos4 = new ArrayList<>(Arrays.asList(medicamento2, medicamento3));
-    ArrayList<Medicamentos> medicamentos5 = new ArrayList<>(Arrays.asList(medicamento4, medicamento5));
+    ArrayList<String> medicamentos1 = new ArrayList<>(Arrays.asList(medicamento1.getDescricao(), medicamento2.getDescricao()));
+    ArrayList<String> medicamentos2 = new ArrayList<>(Arrays.asList(medicamento3.getDescricao(), medicamento4.getDescricao()));
+    ArrayList<String> medicamentos3 = new ArrayList<>(Arrays.asList(medicamento5.getDescricao(), medicamento1.getDescricao()));
+    ArrayList<String> medicamentos4 = new ArrayList<>(Arrays.asList(medicamento2.getDescricao(), medicamento3.getDescricao()));
+    ArrayList<String> medicamentos5 = new ArrayList<>(Arrays.asList(medicamento4.getDescricao(), medicamento5.getDescricao()));
 
-    Receitas receita1 = new Receitas(1, new Date(), medicamentos1, medico1, paciente1);
-    Receitas receita2 = new Receitas(2, new Date(), medicamentos2, medico2, paciente2);
-    Receitas receita3 = new Receitas(3, new Date(), medicamentos3, medico3, paciente3);
-    Receitas receita4 = new Receitas(4, new Date(), medicamentos4, medico4, paciente4);
-    Receitas receita5 = new Receitas(5, new Date(), medicamentos5, medico5, paciente5);
+    Receitas receita1 = new Receitas(1, dateFormat.format(data), medicamentos1, medico1, paciente1);
+    Receitas receita2 = new Receitas(2, dateFormat.format(data), medicamentos2, medico2, paciente2);
+    Receitas receita3 = new Receitas(3, dateFormat.format(data), medicamentos3, medico3, paciente3);
+    Receitas receita4 = new Receitas(4, dateFormat.format(data), medicamentos4, medico4, paciente4);
+    Receitas receita5 = new Receitas(5, dateFormat.format(data), medicamentos5, medico5, paciente5);
 
     VideoChamada chamada1 = new VideoChamada(1, consulta1, "https://linkClinica.com", true);
     VideoChamada chamada2 = new VideoChamada(2, consulta2, "https://linkClinica.com", false);
@@ -378,7 +383,7 @@ try {
                     "\nMédico: "+consulta1.getMedico().getNome()+
                     "\nData: "+consulta1.getDataHora()+
                     "\nStatus: "+consulta1.getStatus()+
-                    "\nAnotações: "+consulta1.getAnotacoes()+
+                    "\nAnotações: "+consulta1.getAnotacoes().getTexto()+
                     "\n--------------------------------------"+
                     "\nID Consulta: "+consulta2.getId()+
                     "\nTipo consulta: "+consulta2.getTipo()+
@@ -386,7 +391,7 @@ try {
                     "\nMédico: "+consulta2.getMedico().getNome()+
                     "\nData: "+consulta2.getDataHora()+
                     "\nStatus: "+consulta2.getStatus()+
-                    "\nAnotações: "+consulta2.getAnotacoes()+
+                    "\nAnotações: "+consulta2.getAnotacoes().getTexto()+
                     "\n--------------------------------------"+
                     "\nID Consulta: "+consulta3.getId()+
                     "\nTipo consulta: "+consulta3.getTipo()+
@@ -394,7 +399,7 @@ try {
                     "\nMédico: "+consulta3.getMedico().getNome()+
                     "\nData: "+consulta3.getDataHora()+
                     "\nStatus: "+consulta3.getStatus()+
-                    "\nAnotações: "+consulta3.getAnotacoes()+
+                    "\nAnotações: "+consulta3.getAnotacoes().getTexto()+
                     "\n--------------------------------------"+
                     "\nID Consulta: "+consulta4.getId()+
                     "\nTipo consulta: "+consulta4.getTipo()+
@@ -402,7 +407,7 @@ try {
                     "\nMédico: "+consulta4.getMedico().getNome()+
                     "\nData: "+consulta4.getDataHora()+
                     "\nStatus: "+consulta4.getStatus()+
-                    "\nAnotações: "+consulta4.getAnotacoes()+
+                    "\nAnotações: "+consulta4.getAnotacoes().getTexto()+
                     "\n--------------------------------------"+
                     "\nID Consulta: "+consulta5.getId()+
                     "\nTipo consulta: "+consulta5.getTipo()+
@@ -410,7 +415,7 @@ try {
                     "\nMédico: "+consulta5.getMedico().getNome()+
                     "\nData: "+consulta5.getDataHora()+
                     "\nStatus: "+consulta5.getStatus()+
-                    "\nAnotações: "+consulta5.getAnotacoes()+
+                    "\nAnotações: "+consulta5.getAnotacoes().getTexto()+
                     "\n--------------------------------------"
     );
 
@@ -531,9 +536,6 @@ try {
                     "\n-----------------------------------------------"
 
             );
-
-}catch (ParseException e){
-    System.out.println("Erro ao criar despesas."+e.getMessage());
 
 }finally {
     JOptionPane.showMessageDialog(null,"Programa finalizado com sucesso!");

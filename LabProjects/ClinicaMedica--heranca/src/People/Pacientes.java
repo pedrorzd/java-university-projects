@@ -13,12 +13,12 @@ public class Pacientes extends PlanosDeSaude {
     private String telefone ;
     private String endereco ;
     private String email ;
-    private Date dataNascimento ;
+    private String dataNascimento ;
     private ArrayList<String> alergias;
     private PlanosDeSaude plano;
 
     public Pacientes(int id, String cpf, String nome, String telefone, String endereco, String email,
-                     Date dataNascimento, ArrayList<String> alergias, PlanosDeSaude plano) {
+                     String dataNascimento, ArrayList<String> alergias, PlanosDeSaude plano) {
         super(plano.getNome(),plano.getDataInicio(),plano.getDataFim(),plano.getProcedimentos());
         this.id = id;
         this.cpf = cpf;
@@ -83,7 +83,7 @@ public class Pacientes extends PlanosDeSaude {
         this.email = email;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 

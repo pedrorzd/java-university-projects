@@ -8,9 +8,9 @@ public class LogsAcesso {
     private Usuario usuario;
     private String operacao; // "Visualizou prontuário", "Alterou consulta"
     private String acao;
-    private Date data;
+    private String data;
 
-    public LogsAcesso(Usuario usuario, String operacao, String acao, Date data) {
+    public LogsAcesso(Usuario usuario, String operacao, String acao, String data) {
         this.usuario = usuario;
         this.operacao = operacao;
         this.acao = acao;
@@ -29,7 +29,7 @@ public class LogsAcesso {
         return acao;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 

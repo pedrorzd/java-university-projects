@@ -7,10 +7,10 @@ public class ItensEstoque implements Estocavel {
     private int id;
     private String descricao;
     private int quantidade;
-    private Date dataValidade;
+    private String dataValidade;
     private String tipo;
 
-    public ItensEstoque(int id, String descricao, int quantidade, Date validade, String tipo) {
+    public ItensEstoque(int id, String descricao, int quantidade, String validade, String tipo) {
         this.id = id;
         this.descricao = descricao;
         this.quantidade = quantidade;
@@ -46,11 +46,11 @@ public class ItensEstoque implements Estocavel {
     }
 
     @Override
-    public Date getDataValidade() {
+    public String getDataValidade() {
         return dataValidade;
     }
 
-    public void setDataValidade(Date dataValidade) {
+    public void setDataValidade(String dataValidade) {
         this.dataValidade = dataValidade;
     }
 

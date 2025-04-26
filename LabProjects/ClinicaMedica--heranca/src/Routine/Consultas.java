@@ -13,11 +13,11 @@ public class Consultas {
     private String tipo;
     private Pacientes paciente;
     private Medicos medico;
-    private Date dataHora;
+    private String dataHora;
     private String status;
     private AnotacoesMedicas anotacoes;
 
-    public Consultas(int id, String tipoConsulta, String tipo, Pacientes paciente, Medicos medico, Date dataHora, String status, AnotacoesMedicas anotacoes) {
+    public Consultas(int id, String tipoConsulta, String tipo, Pacientes paciente, Medicos medico, String dataHora, String status, AnotacoesMedicas anotacoes) {
         this.id = id;
         this.tipoConsulta = tipoConsulta;
         this.tipo = tipo;
@@ -68,11 +68,11 @@ public class Consultas {
         this.medico = medico;
     }
 
-    public Date getDataHora() {
+    public String getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(Date dataHora) {
+    public void setDataHora(String dataHora) {
         this.dataHora = dataHora;
     }
 

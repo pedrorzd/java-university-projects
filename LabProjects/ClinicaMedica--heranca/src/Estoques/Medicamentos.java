@@ -5,12 +5,12 @@ import java.util.Date;
 public class Medicamentos implements Estocavel {
     private int id;
     private String descricao;
-    private Date dataValidade;
+    private String dataValidade;
     private int quantidade; //caixas
     private int qtdeComprimidos;
     private String posologia;
 
-    public Medicamentos(int id, String descricao, Date dataValidade,int quantidade, int qtdeComprimidos, String posologia) {
+    public Medicamentos(int id, String descricao, String dataValidade,int quantidade, int qtdeComprimidos, String posologia) {
         this.id = id;
         this.descricao = descricao;
         this.dataValidade = dataValidade;
@@ -38,11 +38,11 @@ public class Medicamentos implements Estocavel {
     }
 
     @Override
-    public Date getDataValidade() {
+    public String getDataValidade() {
         return dataValidade;
     }
 
-    public void setDataValidade(Date dataValidade) {
+    public void setDataValidade(String dataValidade) {
         this.dataValidade = dataValidade;
     }
 

@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class PlanosDeSaude {
     private String nome;
-    private Date dataInicio;
-    private Date dataFim;
+    private String dataInicio;
+    private String dataFim;
     private ArrayList<String> procedimentos;
 
-    public PlanosDeSaude(String nome, Date dataInicio, Date dataFim, ArrayList<String> procedimentos) {
+    public PlanosDeSaude(String nome, String dataInicio, String dataFim, ArrayList<String> procedimentos) {
         this.nome = nome;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
@@ -24,15 +24,15 @@ public class PlanosDeSaude {
         this.nome = nome;
     }
 
-    public Date getDataInicio() {
+    public String getDataInicio() {
         return dataInicio;
     }
 
-    public Date getDataFim() {
+    public String getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(String dataFim) {
         this.dataFim = dataFim;
     }
 
