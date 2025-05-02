@@ -2,22 +2,23 @@ package Routine;
 
 import People.AnotacoesMedicas.AnotacoesMedicas;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class ProntuariosEletronicos {
-    private ArrayList<AnotacoesMedicas> historico;
+    private ArrayList<String> historico;
     private ArrayList<Receitas> receita;
 
-    public ProntuariosEletronicos(ArrayList<AnotacoesMedicas> historico, ArrayList<Receitas> receita) {
+    public ProntuariosEletronicos(ArrayList<String> historico, ArrayList<Receitas> receita) {
         this.historico = historico;
         this.receita = receita;
     }
 
-    public ArrayList<AnotacoesMedicas> getHistorico() {
+    public ArrayList<String> getHistorico() {
         return historico;
     }
 
-    public void setHistorico(ArrayList<AnotacoesMedicas> historico) {
+    public void setHistorico(ArrayList<String> historico) {
         this.historico = historico;
     }
 
@@ -29,8 +30,6 @@ public class ProntuariosEletronicos {
         this.receita = receita;
     }
 
-    public void adicionarAnotacao(AnotacoesMedicas anotacao){};
-    public void resumoProntuario(){};
-//////////Relaciona com anotacoesMedicas
-//////////Relaciona com receitas
+    public void adicionarAnotacao(AnotacoesMedicas anotacao){
+    };
 }

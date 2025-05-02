@@ -11,7 +11,6 @@ public class AnotacoesMedicas extends Medicos {
     private String texto;
     private Medicos medicoResponsavel;
     private Pacientes paciente;
-    //composicao
 
     public AnotacoesMedicas(int id, String data, String texto, Medicos medicoResponsavel, Pacientes paciente) {
         super(medicoResponsavel.getId(), medicoResponsavel.getCrm(), medicoResponsavel.getNome(),

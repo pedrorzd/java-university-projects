@@ -45,5 +45,7 @@ public class VideoChamada {
         this.gravacaoAutorizada = gravacaoAutorizada;
     }
 
-    public void iniciarChamada(){};
+    public void iniciarChamada(){
+
+    };
 }

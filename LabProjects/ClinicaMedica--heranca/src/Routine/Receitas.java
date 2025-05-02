@@ -64,5 +64,7 @@ public class Receitas extends Medicos {
     }
 
     //vericar para adicionar medicamento
-    public void adicionarMedicamento(Medicamentos med){};
+    public void adicionarMedicamento(Medicamentos medicamentos, String medicamentoAdicionado) {
+        getMedicamentos().add(medicamentoAdicionado);
+    };
 }

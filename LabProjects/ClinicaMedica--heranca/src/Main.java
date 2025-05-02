@@ -1,15 +1,13 @@
 import Administrative.*;
 import Estoques.Estocavel;
+import Estoques.EstoqueGeral;
 import Estoques.ItensEstoque;
 import Estoques.Medicamentos;
 import People.AnotacoesMedicas.AnotacoesMedicas;
 import People.Medicos;
 import People.Pacientes;
 import People.Usuario;
-import Routine.Consultas;
-import Routine.Exames;
-import Routine.Receitas;
-import Routine.VideoChamada;
+import Routine.*;
 
 import javax.swing.*;
 import java.text.DateFormat;
@@ -32,17 +30,20 @@ try {
     Despesas despesa4 = new Despesas(4, "Serviço de limpeza", 300.00, "20/03/2025");
     Despesas despesa5 = new Despesas(5, "Manutenção de equipamentos", 180.30, "01/04/2025");
 
-    ArrayList<String> procedimentos1 = new ArrayList<>(Arrays.asList("Consulta", "Exame de sangue"));
-    ArrayList<String> procedimentos2 = new ArrayList<>(Arrays.asList("Raio-X", "Ultrassonografia"));
-    ArrayList<String> procedimentos3 = new ArrayList<>(Arrays.asList("Cirurgia", "Internação", "Fisioterapia"));
-    ArrayList<String> procedimentos4 = new ArrayList<>(Arrays.asList("Consulta psicológica", "Nutricionista"));
-    ArrayList<String> procedimentos5 = new ArrayList<>(Arrays.asList("Vacinação", "Check-up anual"));
+    ArrayList<String> procedimentosPremium = new ArrayList<>();
+    ArrayList<String> procedimentosFamiliar = new ArrayList<>();
+    ArrayList<String> procedimentosIntermediario = new ArrayList<>();
+    ArrayList<String> procedimentosBasico = new ArrayList<>();
+    procedimentosPremium.addAll(Arrays.asList("Exame de sangue","Raio-X", "Ultrassonografia","Cirurgia", "Internação", "Fisioterapia",
+            "Consulta psicológica", "Nutricionista","Vacinação", "Check-up anual"));
+    procedimentosBasico.addAll(Arrays.asList("Exame de sangue","Raio-X", "Nutricionista"));
+    procedimentosIntermediario.addAll(Arrays.asList("Exame de sangue","Raio-X", "Ultrassonografia","Cirurgia", "Internação", "Fisioterapia","Consulta psicológica"));
 
-    PlanosDeSaude plano1 = new PlanosDeSaude("Plano Básico", "01/01/2024", "31/12/2024", procedimentos1);
-    PlanosDeSaude plano2 = new PlanosDeSaude("Plano Intermediário", "01/02/2024", "31/01/2025", procedimentos2);
-    PlanosDeSaude plano3 = new PlanosDeSaude("Plano Premium", "15/03/2024", "14/03/2025", procedimentos3);
-    PlanosDeSaude plano4 = new PlanosDeSaude("Plano Familiar", "01/05/2024", "30/04/2025", procedimentos4);
-    PlanosDeSaude plano5 = new PlanosDeSaude("Plano Empresarial", "10/06/2024", "09/06/2025", procedimentos5);
+    PlanosDeSaude plano1 = new PlanosDeSaude("Plano Básico", "01/01/2024", "31/12/2024", procedimentosBasico);
+    PlanosDeSaude plano2 = new PlanosDeSaude("Plano Intermediário", "01/02/2024", "31/01/2025", procedimentosIntermediario);
+    PlanosDeSaude plano3 = new PlanosDeSaude("Plano Premium", "15/03/2024", "14/03/2025", procedimentosPremium);
+    PlanosDeSaude plano4 = new PlanosDeSaude("Plano Familiar", "01/05/2024", "30/04/2025", procedimentosFamiliar);
+    PlanosDeSaude plano5 = new PlanosDeSaude("Plano Empresarial", "10/06/2024", "09/06/2025", procedimentosPremium);
 
     ItensEstoque item1 = new ItensEstoque(10, "Álcool em gel", 50, "10/12/2025", "Higiene");
     ItensEstoque item2 = new ItensEstoque(20, "Luvas descartáveis", 200, "01/11/2025", "Proteção");
@@ -122,15 +123,28 @@ try {
     VideoChamada chamada4 = new VideoChamada(4, consulta4, "https://linkClinica.com", false);
     VideoChamada chamada5 = new VideoChamada(5, consulta5, "https://linkClinica.com", true);
 
-    Faturamentos faturamento1 = new Faturamentos(consulta1, 150.00, "Consulta Particular", "Cartão de Crédito", true);
-    Faturamentos faturamento2 = new Faturamentos(consulta2, 200.00, "Consulta Particular", "Dinheiro", false);
+    Faturamentos faturamento1 = new Faturamentos(consulta1, 300.00, "Consulta Particular", "Cartão de Crédito", true);
+    Faturamentos faturamento2 = new Faturamentos(consulta2, 250.00, "Consulta Particular", "Dinheiro", false);
     Faturamentos faturamento3 = new Faturamentos(consulta3, 120.00, "Consulta Convênio", "Cartão de Crédito", true);
     Faturamentos faturamento4 = new Faturamentos(consulta4, 250.00, "Consulta Particular", "Cheque", false);
-    Faturamentos faturamento5 = new Faturamentos(consulta5, 100.00, "Consulta Convênio", "Dinheiro", true);
+    Faturamentos faturamento5 = new Faturamentos(consulta5, 120.00, "Consulta Convênio", "Dinheiro", true);
+
+    //ProntuariosEletronicos prontuario1 = new ProntuariosEletronicos(anotacao1.getTexto(), receita1.getMedicamentos() );
 
     // financeiro
     ArrayList<Faturamentos> faturamentos = new ArrayList<>(Arrays.asList(faturamento1, faturamento2, faturamento3, faturamento4, faturamento5));
-    ArrayList<Despesas> Despesas = new ArrayList<>(Arrays.asList(despesa1, despesa2, despesa3, despesa4, despesa5));
+    ArrayList<Despesas> despesas = new ArrayList<>(Arrays.asList(despesa1, despesa2, despesa3, despesa4, despesa5));
+    Financeiro calculoMensal = new Financeiro();
+    calculoMensal.calcularLucroMensal(faturamentos, despesas);
+
+    //plano de saude
+    PlanosDeSaude planoGeral = new PlanosDeSaude();
+    planoGeral.addProcedimento(procedimentosPremium, "Clareamento dental");
+    planoGeral.cobreProcedimento(procedimentosBasico,"Raio-X");
+
+    //relatorio de LOG
+    LogsAcesso relatorioLog = new LogsAcesso();
+    relatorioLog.gerarRelatorio(usuario3);
 
     //estoque
     ArrayList<Estocavel>estoqueGeral = new ArrayList<>();
@@ -140,6 +154,20 @@ try {
     itemsEstoqueArrayList.addAll(Arrays.asList(item1,item2,item3,item4,item5));
     estoqueGeral.addAll(itemsEstoqueArrayList);
     estoqueGeral.addAll(medicamentosArrayList);
+    //EstoqueGeral alerta = new EstoqueGeral();
+    //alerta.alertaReposicao();
+
+    //paciente
+    paciente1.possuiCobertura(plano1, "Clareamento Dental");
+
+    //exames por email e SMS
+    exame1.enviarResultado(paciente1);
+
+    //prontuarios
+
+
+    //adicionar medicamento
+    receita3.adicionarMedicamento(medicamento3,medicamento2.getDescricao());
 
     //dados Despesa
     JOptionPane.showMessageDialog(null,

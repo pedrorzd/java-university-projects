@@ -1,13 +1,15 @@
 package Administrative;
 
+import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class PlanosDeSaude {
     private String nome;
     private String dataInicio;
     private String dataFim;
     private ArrayList<String> procedimentos;
+
+    public PlanosDeSaude() {}
 
     public PlanosDeSaude(String nome, String dataInicio, String dataFim, ArrayList<String> procedimentos) {
         this.nome = nome;
@@ -44,6 +46,15 @@ public class PlanosDeSaude {
         this.procedimentos = procedimentos;
     }
 
-    public void addProcedimento(String codigo){};
-    public void cobreProcedimento(String codigo){};
+    public void addProcedimento(ArrayList<String> procedimentos, String procedimento) {
+        procedimentos.add(procedimento);
+    };
+
+    public void cobreProcedimento(ArrayList<String>procedimentos,String procedimento) {
+        if(procedimentos.contains(procedimento)) {
+            JOptionPane.showMessageDialog(null, "O procedimento é aceito pelo plano de saúde");
+        } else{
+            JOptionPane.showMessageDialog(null, "O procedimento não é aceito pelo plano de saúde");
+        }
+    };
 }

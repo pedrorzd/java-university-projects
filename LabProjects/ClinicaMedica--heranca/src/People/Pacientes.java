@@ -3,8 +3,8 @@ package People;
 import Administrative.PlanosDeSaude;
 import Validation.Validacao;
 
+import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Pacientes extends PlanosDeSaude {
     private int id;
@@ -104,7 +104,15 @@ public class Pacientes extends PlanosDeSaude {
     }
 
     // Verifica se o plano cobre um exame
-    private boolean possuiCobertura(String procedimento){
-        return false;
+    public void possuiCobertura(PlanosDeSaude procedimentos, String procedimentoPaciente) {
+        for (String procedimento : procedimentos.getProcedimentos()) {
+            if (procedimentoPaciente.contains(procedimento)==false){
+                JOptionPane.showMessageDialog(null, "O plano não cobre o procedimento desejado!");
+                return;
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "O plano cobre o procedimento desejado!");
+            }
+        }
     };
 }

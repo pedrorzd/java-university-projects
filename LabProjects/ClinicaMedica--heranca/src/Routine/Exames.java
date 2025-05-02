@@ -2,6 +2,7 @@ package Routine;
 
 import People.Pacientes;
 
+import javax.swing.*;
 import java.util.Date;
 
 public class Exames {
@@ -70,5 +71,11 @@ public class Exames {
     }
 
     // SMS/Email
-    public void enviarResultado(Pacientes paciente){};
+    public void enviarResultado(Pacientes paciente){
+        JOptionPane.showMessageDialog(null,
+                "Exame enviado com sucesso!"+
+                "\nEmail do paciente: "+ paciente.getEmail() +
+                "\nCelular do paciente: "+paciente.getTelefone()
+                );
+    };
 }
