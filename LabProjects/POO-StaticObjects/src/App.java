@@ -1,12 +1,15 @@
 import Controller.ImcClass;
+import Controller.PasswordManeger;
 
 import javax.swing.*;
+import java.util.ArrayList;
+
+import static Controller.PasswordManeger.setUsers;
+
 
 public class App {
     public static void main(String[] args) {
-        /*1.
-        2. Gerenciador de Senhas (Variável Estática)
-        Armazene uma senha padrão compartilhada entre todos os usuários.
+        /*
         3. Contador de Acessos (Variável Estática + Bloco Estático)
         Conte quantas vezes um sistema foi acessado.
         4. Conversor de Moedas (Classe Utilitária Estática)
@@ -28,7 +31,27 @@ public class App {
         JOptionPane.showMessageDialog(null, "Resultado do calculo do IMC: "+
                 "\n"+valorFormatado);
 
+
+
         JOptionPane.showMessageDialog(null, "Iniciando exec 2");
+
+        String senhaPadrao = JOptionPane.showInputDialog(null,"Digite a senha padrão que será compartilhada com todos os usuários: ");
+        PasswordManeger senhaPadraoUsuarios = new PasswordManeger(senhaPadrao);
+        String userNovo = JOptionPane.showInputDialog(null, "Digite o nome do usuário para ser adicionado no sistema: ");
+        setUsers(userNovo);
+        while(userNovo != null ) {
+            userNovo = JOptionPane.showInputDialog(null, "Digite o nome do usuário para ser adicionado no sistema: "+
+                    "\nPara encerrar o programa aperte em 'Cancel!'");
+            setUsers(userNovo);
+        }
+
+        JOptionPane.showMessageDialog(null, "O campo anterior estava vazio. Programa finalizado. ");
+        PasswordManeger.removeLastUser();
+        JOptionPane.showMessageDialog(null, "Dados inseridos: " +
+                "\nSenha padão do sistema: " +senhaPadraoUsuarios.getSenha()+
+                "\nUsuários adicionados: " +PasswordManeger.getUsers()
+        );
+
 
 
     }
