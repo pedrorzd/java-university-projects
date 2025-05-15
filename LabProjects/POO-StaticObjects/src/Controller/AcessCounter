@@ -1,0 +1,13 @@
+public class AcessCounter{
+    private String user;
+    private static ArrayList<String> userAcessList;
+    private static int counter = 0;
+
+    public AcessCounter(String user){
+    userAcessList = new ArrayList<String>();
+    this.user = user;
+    userAcessList.add(user);
+    counter++;
+    }
+
+}
