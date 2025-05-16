@@ -1,17 +1,17 @@
+import Controller.AcessController;
 import Controller.ImcClass;
 import Controller.PasswordManeger;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
+import static Controller.PasswordManeger.getUsers;
 import static Controller.PasswordManeger.setUsers;
 
 
 public class App {
     public static void main(String[] args) {
         /*
-        3. Contador de Acessos (Variável Estática + Bloco Estático)
-        Conte quantas vezes um sistema foi acessado.
         4. Conversor de Moedas (Classe Utilitária Estática)
         Converta dólar para real usando uma taxa atualizada.
         5. Cache Simples em Memória (Variável Estática + Métodos Estáticos)
@@ -19,7 +19,7 @@ public class App {
         ou acessos repetidos ao banco.
          Exemplo: usando o metodo : adicionacache(“user 1”,”Jose maria”)
          */
-
+/*
         JOptionPane.showMessageDialog(null, "Iniciando exec 1");
         String valorPeso = JOptionPane.showInputDialog(null,"Escreva o valor do peso e da altura, em quilos e metros, respectivamente"
                 +"\nPeso em Kg's");
@@ -52,9 +52,21 @@ public class App {
                 "\nUsuários adicionados: " +PasswordManeger.getUsers()
         );
 
+
+
         JOptionPane.showMessageDialog(null, "Iniciando exec 3");
         String acessUserName = JOptionPane.showInputDialog(null, "Digite o nome do usuário que irá acessar o sistema: ");
-        
+        AcessController contadorUsuarios = new AcessController(acessUserName);
+        while (acessUserName != null) {
+            acessUserName = JOptionPane.showInputDialog(null, "Digite o nome do usuário que irá acessar o sistema: "+
+                    "\nPara encerrar o programa aperte em 'Cancel!'");
+            AcessController.setUserAcessList(acessUserName);
+        }
+        JOptionPane.showMessageDialog(null, "Usuarios que entraram no sistema: \n"+AcessController.getUserAcessList()+
+                "\nQuantidade de acessos: "+AcessController.getCounter());
+    */
+
+
 
     }
 }
