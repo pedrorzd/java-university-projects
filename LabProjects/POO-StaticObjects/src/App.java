@@ -1,8 +1,10 @@
 import Controller.AcessController;
+import Controller.CoinConversor;
 import Controller.ImcClass;
 import Controller.PasswordManeger;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import static Controller.PasswordManeger.getUsers;
@@ -10,14 +12,16 @@ import static Controller.PasswordManeger.setUsers;
 
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         /*
         4. Conversor de Moedas (Classe Utilitária Estática)
         Converta dólar para real usando uma taxa atualizada.
+
         5. Cache Simples em Memória (Variável Estática + Métodos Estáticos)
         Armazene(SIMULE usando um array do tipo Map) dados em cache para evitar recálculos
         ou acessos repetidos ao banco.
-         Exemplo: usando o metodo : adicionacache(“user 1”,”Jose maria”)
+
+        Exemplo: usando o metodo : adicionacache(“user 1”,”Jose maria”)
          */
 /*
         JOptionPane.showMessageDialog(null, "Iniciando exec 1");
@@ -66,7 +70,8 @@ public class App {
                 "\nQuantidade de acessos: "+AcessController.getCounter());
     */
 
-
-
+        JOptionPane.showMessageDialog(null, "Iniciando exec 4");
+        CoinConversor coinConversor = new CoinConversor();
+        coinConversor.getCoinValues();
     }
 }
