@@ -1,14 +1,7 @@
-import Controller.AcessController;
 import Controller.CoinConversor;
-import Controller.ImcClass;
-import Controller.PasswordManeger;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import static Controller.PasswordManeger.getUsers;
-import static Controller.PasswordManeger.setUsers;
 
 
 public class App {
@@ -73,5 +66,52 @@ public class App {
         JOptionPane.showMessageDialog(null, "Iniciando exec 4");
         CoinConversor coinConversor = new CoinConversor();
         coinConversor.getCoinValues();
+
+        CoinConversor.getValorBtc();
+        CoinConversor.getValorUsd();
+
+        String[] opcoes = {"Dólar", "Bitcoin"};
+        int conversor = JOptionPane.showOptionDialog(null,
+                "Qual valor você deseja ver em reais?",
+                "Conversor de moeda",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opcoes,
+                opcoes[0]);
+
+        if (conversor != 0 && conversor != 1) {
+            JOptionPane.showMessageDialog(null,
+                    "Programa encerrado!");
+        }
+        else if (conversor == 0) {
+            String valorDolarString = JOptionPane.showInputDialog(
+                    null,
+                    "Digite o valor em dólar para converter"+
+                            "\nCotação atual: R$"+CoinConversor.getValorUsd()
+            );
+            double valorReaisParaUsd = Double.parseDouble(valorDolarString);
+
+            double valorConvertido = CoinConversor.getValorConvertido(valorReaisParaUsd,CoinConversor.getValorUsd());
+
+            JOptionPane.showMessageDialog(null,
+                    "Convertido com sucesso "+
+                            "\nO valor do dólar em reais é :\n R$ "+valorConvertido);
+        }
+        else if (conversor == 1) {
+            String valorBitString = JOptionPane.showInputDialog(
+                    null,
+                    "Digite a quantidade de bitcoins para converter"+
+                            "\nCotação atual: R$"+CoinConversor.getValorBtc()
+            );
+            double valorReaisParaBtc = Double.parseDouble(valorBitString);
+
+            double valorConvertido = CoinConversor.getValorConvertido(valorReaisParaBtc,CoinConversor.getValorBtc());
+
+            JOptionPane.showMessageDialog(null,
+                    "Convertido com sucesso "+
+                    "\nO valor de Bitcoins em reais é :\n R$ "+valorConvertido);
+        }
+
     }
 }
