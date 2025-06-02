@@ -1,8 +1,5 @@
 package Interface;
 
-import java.time.LocalTime;
-import java.util.Date;
-
 public interface Notificacao {
 
     static void envioSms(String numeroRemetente, String nomeRemetente, String numeroDestinatario, String nomeDestinatario, String mensagem) {

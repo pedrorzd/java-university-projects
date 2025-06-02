@@ -32,8 +32,10 @@ public class formaQuad implements formasGeo {
         System.out.printf(
                 "Nome forma: " + getNomeForma()
                 + "\nAltura: " + getAltura()
-                + "\nLargura: " + getLargura()
-                + "\nArea: %.2f", area
+                + "cm\nLargura: " + getLargura()
+                + "cm \nArea: %.2f cm²", area
         );
     }
+    @Override
+    public void calculaAreaTrapezio(double baseMaior, double baseMenor, double altura) {}
 }

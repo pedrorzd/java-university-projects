@@ -30,9 +30,12 @@ public class formaCirculo implements formasGeo {
         System.out.printf(
                 "Nome forma: " + getNomeForma()
                 + "\nRaio: " + getRaio()
-                + "\nArea: %.2f", area
+                + "cm \nArea: %.2f cm²", area
         );
     }
+
+    @Override
+    public void calculaAreaTrapezio(double baseMaior, double baseMenor, double altura) {}
 
 
 }

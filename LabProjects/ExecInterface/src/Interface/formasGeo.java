@@ -1,5 +1,6 @@
 package Interface;
 
-public interface formasGeo {
-    abstract void calculaArea(double largura, double altura);
+ public interface formasGeo {
+     void calculaArea(double largura, double altura);
+     void calculaAreaTrapezio(double baseMaior, double baseMenor, double altura);
 }

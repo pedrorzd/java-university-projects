@@ -1,6 +1,6 @@
 package FormGeo;
 
-import Interface.formasGeo;
+import Interface.*;
 
 public class formaTrapezio implements formasGeo {
     private String nomeForma;
@@ -32,15 +32,18 @@ public class formaTrapezio implements formasGeo {
     }
 
     @Override
-    public void calculaArea(double baseMaior, double baseMenor, double altura) {
+    public void calculaArea(double altura, double largura) {}
+
+    public void calculaAreaTrapezio(double baseMaior, double baseMenor, double altura) {
         double area = ((getBaseMaior()*getBaseMenor())*getAltura())/2;
         System.out.println("\n");
         System.out.printf(
                 "Nome forma: " + getNomeForma()
                         + "\nBase maior: " + getBaseMaior()
-                        + "\nBase menor: " + getBaseMenor()
-                        + "\nAltura: " +getAltura()
-                        + "\nArea: " + area
+                        + "cm\nBase menor: " + getBaseMenor()
+                        + "cm\nAltura: " +getAltura()
+                        + "cm\nArea: %.2f cm²", area
         );
     }
+
 }

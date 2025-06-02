@@ -1,6 +1,5 @@
-import FormGeo.formaCirculo;
-import FormGeo.formaQuad;
-import FormGeo.formaRetangulo;
+import Entrega.Entregas;
+import FormGeo.*;
 import Mensageiros.Email;
 import Mensageiros.Push;
 import Mensageiros.Sms;
@@ -11,6 +10,8 @@ public class Main {
     public static void main(String[] args) {
 
         Locale.setDefault(Locale.US);
+
+        System.out.println("MENSAGENS DE SMS");
 
         Sms sms1 = new Sms(
                 "11999999999",
@@ -83,6 +84,11 @@ public class Main {
                 sms1.getNomeDestinatario(),
                 sms1.getMensagem()
         );
+
+        System.out.println(" FIM DAS MENSAGENS DE SMS");
+
+        System.out.println("\n\n");
+        System.out.println("INICIANDO MENSAGENS DE EMAIL");
 
         Email email1 = new Email(
                 "joao@email.com",
@@ -174,6 +180,10 @@ public class Main {
                 email5.getCorpoMensagem()
         );
 
+        System.out.println("FIM DA MENSAGENS DE EMAIL");
+        System.out.println("\\n\\n");
+        System.out.println("INICIANDO MENSAGENS PUSH");
+
         Push push1 = new Push(
                 "push-001",
                 "Bem-vindo!",
@@ -229,6 +239,10 @@ public class Main {
                 push5.getHorario(),
                 push5.getCorpoMensagem()
         );
+
+        System.out.println("FIM DAS MENSAGENS PUSH");
+        System.out.println("\\n\\n");
+        System.out.println("INICIANDO CALCULOS DE AREAS");
 
         formaCirculo circulo1 = new formaCirculo(
                 "Circulo 1",
@@ -332,30 +346,156 @@ public class Main {
         formaTrapezio trapezio4 = new formaTrapezio("Trapézio 4", 20.0, 10.0, 8.0);
         formaTrapezio trapezio5 = new formaTrapezio("Trapézio 5", 18.0, 9.0, 7.5);
 
-        trapezio1.calculaArea(
-                trapezio1.getbaseMaior(),
-                trapezio1.getbaseMenor(),
-                trapezio1.getaltura()
+        trapezio1.calculaAreaTrapezio(
+                trapezio1.getBaseMaior(),
+                trapezio1.getBaseMenor(),
+                trapezio1.getAltura()
         );
-        trapezio2.calculaArea(
-                trapezio2.getbaseMaior(),
-                trapezio2.getbaseMenor(),
-                trapezio2.getaltura()
+        trapezio2.calculaAreaTrapezio(
+                trapezio2.getBaseMaior(),
+                trapezio2.getBaseMenor(),
+                trapezio2.getAltura()
         );
-        trapezio3.calculaArea(
-                trapezio3.getbaseMaior(),
-                trapezio3.getbaseMenor(),
-                trapezio3.getaltura()
+        trapezio3.calculaAreaTrapezio(
+                trapezio3.getBaseMaior(),
+                trapezio3.getBaseMenor(),
+                trapezio3.getAltura()
         );
-        trapezio4.calculaArea(
-                trapezio4.getbaseMaior(),
-                trapezio4.getbaseMenor(),
-                trapezio4.getaltura()
+        trapezio4.calculaAreaTrapezio(
+                trapezio4.getBaseMaior(),
+                trapezio4.getBaseMenor(),
+                trapezio4.getAltura()
         );
-        trapezio5.calculaArea(
-                trapezio5.getbaseMaior(),
-                trapezio5.getbaseMenor(),
-                trapezio5.getaltura()
+        trapezio5.calculaAreaTrapezio(
+                trapezio5.getBaseMaior(),
+                trapezio5.getBaseMenor(),
+                trapezio5.getAltura()
+        );
+
+        formaTri triangulo1 = new formaTri("Triangulo 1", 5.0, 10.0);
+        formaTri triangulo2 = new formaTri("Triangulo 2", 8.0, 12.0);
+        formaTri triangulo3 = new formaTri("Triangulo 3", 15.0, 7.5);
+        formaTri triangulo4 = new formaTri("Triangulo 4", 20.0, 5.0);
+        formaTri triangulo5 = new formaTri("Triangulo 5", 9.0, 14.0);
+
+        triangulo1.calculaArea(
+                triangulo1.getLargura(),
+                triangulo1.getAltura()
+        );
+        triangulo2.calculaArea(
+                triangulo2.getLargura(),
+                triangulo2.getAltura()
+        );
+        triangulo3.calculaArea(
+                triangulo3.getLargura(),
+                triangulo3.getAltura()
+        );
+        triangulo4.calculaArea(
+                triangulo4.getLargura(),
+                triangulo4.getAltura()
+        );
+        triangulo5.calculaArea(
+                triangulo5.getLargura(),
+                triangulo5.getAltura()
+        );
+        System.out.println("FIM DOS CALCULOS DE AREAS");
+        System.out.println("\n \n");
+        System.out.println("INICIANDO SISTEMA DE ENTREGA");
+
+        Entregas entrega1 = new Entregas(
+                "iFood",
+                "E001",
+                "João Silva",
+                "2025-06-01",
+                "Moto",
+                "Rua das Flores, 123 - Centro",
+                "5 km"
+        );
+
+        Entregas entrega2 = new Entregas(
+                "Uber Eats",
+                "E002",
+                "Maria Souza",
+                "2025-06-01",
+                "Bicicleta",
+                "Avenida Brasil, 456 - Zona Norte",
+                "3 km"
+        );
+
+        Entregas entrega3 = new Entregas(
+                "Rappi",
+                "E003",
+                "Carlos Oliveira",
+                "2025-06-01",
+                "Carro",
+                "Rua das Palmeiras, 789 - Zona Sul",
+                "10 km"
+        );
+
+        Entregas entrega4 = new Entregas(
+                "iFood",
+                "E004",
+                "Fernanda Lima",
+                "2025-06-01",
+                "Moto",
+                "Praça da Sé, 100 - Centro",
+                "7 km"
+        );
+
+        Entregas entrega5 = new Entregas(
+                "Lalamove",
+                "E005",
+                "Ricardo Gomes",
+                "2025-06-01",
+                "Caminhão",
+                "Rodovia Anhanguera, km 25",
+                "25 km"
+        );
+
+        entrega1.entrega(
+                entrega1.getAppUsado(),
+                entrega1.getIdEntrega(),
+                entrega1.getNomeEntegador(),
+                entrega1.getDataEntrega(),
+                entrega1.getVeiculoEntregador(),
+                entrega1.getEnderecoEntrega(),
+                entrega1.getDistancia()
+        );
+        entrega2.entrega(
+                entrega2.getAppUsado(),
+                entrega2.getIdEntrega(),
+                entrega2.getNomeEntegador(),
+                entrega2.getDataEntrega(),
+                entrega2.getVeiculoEntregador(),
+                entrega2.getEnderecoEntrega(),
+                entrega2.getDistancia()
+        );
+        entrega3.entrega(
+                entrega3.getAppUsado(),
+                entrega3.getIdEntrega(),
+                entrega3.getNomeEntegador(),
+                entrega3.getDataEntrega(),
+                entrega3.getVeiculoEntregador(),
+                entrega3.getEnderecoEntrega(),
+                entrega3.getDistancia()
+        );
+        entrega4.entrega(
+                entrega4.getAppUsado(),
+                entrega4.getIdEntrega(),
+                entrega4.getNomeEntegador(),
+                entrega4.getDataEntrega(),
+                entrega4.getVeiculoEntregador(),
+                entrega4.getEnderecoEntrega(),
+                entrega4.getDistancia()
+        );
+        entrega5.entrega(
+                entrega5.getAppUsado(),
+                entrega5.getIdEntrega(),
+                entrega5.getNomeEntegador(),
+                entrega5.getDataEntrega(),
+                entrega5.getVeiculoEntregador(),
+                entrega5.getEnderecoEntrega(),
+                entrega5.getDistancia()
         );
     }
 }
