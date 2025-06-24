@@ -1,4 +1,4 @@
 package Funcionarios;
 
-public class ProductOwner {
+public class ProductOwner extends Funcionarios {
 }

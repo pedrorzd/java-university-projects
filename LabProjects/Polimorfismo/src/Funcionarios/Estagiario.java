@@ -1,4 +1,4 @@
 package Funcionarios;
 
-public class Estagiario {
+public class Estagiario extends Funcionarios{
 }

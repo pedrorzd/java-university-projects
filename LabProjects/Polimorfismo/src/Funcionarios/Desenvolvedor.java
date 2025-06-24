@@ -1,5 +1,5 @@
 package Funcionarios;
 
-public class Desenvolvedor {
+public class Desenvolvedor  {
 
 }

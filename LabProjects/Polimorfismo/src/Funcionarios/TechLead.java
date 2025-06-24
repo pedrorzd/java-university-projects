@@ -1,4 +1,4 @@
 package Funcionarios;
 
-public class TechLead {
+public class TechLead extends Funcionarios {
 }

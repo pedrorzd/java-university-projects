@@ -14,10 +14,9 @@ public class FolhaPagamento {
 
             if (f instanceof Bonificacao){
                 Bonificacao b = (Bonificacao) f;
-                System.out.println("Bonificaçao: R$ " + b.calculaBonificacao());
+                System.out.println("Bonificaçao: R$ " + b.getBonificacao());
             }
             System.out.println("---------------------------------");
         }
     }
-
 }
